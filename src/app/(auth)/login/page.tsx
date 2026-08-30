@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { GraduationCap, Eye, EyeOff, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { createClient } from "@/lib/supabase/client"
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const next = searchParams.get("next") ?? "/"
@@ -164,5 +164,17 @@ export default function LoginPage() {
         </p>
       </div>
     </div>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center">
+        <Loader2 className="h-6 w-6 animate-spin text-blue-700" />
+      </div>
+    }>
+      <LoginForm />
+    </Suspense>
   )
 }
