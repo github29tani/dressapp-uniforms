@@ -13,7 +13,7 @@ import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
 import { useCartStore } from "@/store/cart-store"
 import { formatPrice } from "@/lib/utils-shop"
-import { INDIAN_STATES } from "@/lib/mock-data"
+import { INDIAN_STATES } from "@/lib/constants"
 
 type Step = "address" | "delivery" | "payment" | "confirmation"
 

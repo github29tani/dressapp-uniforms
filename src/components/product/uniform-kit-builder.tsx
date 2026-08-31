@@ -12,10 +12,9 @@ import type { UniformKit, ProductVariant } from "@/types"
 
 interface UniformKitBuilderProps {
   kit: UniformKit
-  childId?: string
 }
 
-export function UniformKitBuilder({ kit, childId }: UniformKitBuilderProps) {
+export function UniformKitBuilder({ kit }: UniformKitBuilderProps) {
   const addItem = useCartStore((s) => s.addItem)
 
   // Track selected state and chosen size per item
@@ -54,7 +53,7 @@ export function UniformKitBuilder({ kit, childId }: UniformKitBuilderProps) {
     selectedItems.forEach((item) => {
       const variant = sizes[item.id]
       if (variant) {
-        addItem(item.product, variant, 1, childId)
+        addItem(item.product, variant, 1)
       }
     })
   }

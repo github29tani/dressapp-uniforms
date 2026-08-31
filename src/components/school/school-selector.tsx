@@ -1,40 +1,63 @@
 "use client"
 
-import { useState } from "react"
-import { Search } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Search, Loader2 } from "lucide-react"
 import { Input } from "@/components/ui/input"
-import { SchoolCard } from "./school-card"
-import { MOCK_SCHOOLS } from "@/lib/mock-data"
+import { SchoolCard } from "@/components/school/school-card"
+import { createClient } from "@/lib/supabase/client"
+import type { School } from "@/types"
 
 export function SchoolSelector() {
   const [query, setQuery] = useState("")
+  const [schools, setSchools] = useState<School[]>([])
+  const [loading, setLoading] = useState(true)
 
-  const filtered = MOCK_SCHOOLS.filter(
-    (s) =>
-      s.name.toLowerCase().includes(query.toLowerCase()) ||
-      s.city.toLowerCase().includes(query.toLowerCase()) ||
-      s.state.toLowerCase().includes(query.toLowerCase())
+  useEffect(() => {
+    const supabase = createClient()
+    supabase
+      .from("schools")
+      .select("*")
+      .eq("is_active", true)
+      .order("name")
+      .then(({ data }) => {
+        setSchools(
+          (data ?? []).map((s: Record<string, unknown>) => ({
+            ...s,
+            location: [s.address, s.city, s.state].filter(Boolean).join(", ") || (s.city as string) || "",
+          })) as School[]
+        )
+        setLoading(false)
+      })
+  }, [])
+
+  const filtered = schools.filter((s) =>
+    !query.trim() ||
+    s.name.toLowerCase().includes(query.toLowerCase()) ||
+    (s.city ?? "").toLowerCase().includes(query.toLowerCase()) ||
+    (s.state ?? "").toLowerCase().includes(query.toLowerCase())
   )
 
   return (
     <div className="space-y-6">
-      {/* Search */}
-      <div className="relative max-w-lg mx-auto">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+      <div className="relative max-w-md mx-auto">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
         <Input
-          className="pl-10 h-12 text-base bg-white shadow-sm"
-          placeholder="Search your school by name or city..."
+          placeholder="Search your school..."
+          className="pl-10 h-12 text-base"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          aria-label="Search schools"
+          autoFocus
         />
       </div>
 
-      {/* Results */}
-      {filtered.length === 0 ? (
+      {loading ? (
+        <div className="flex justify-center py-12">
+          <Loader2 className="h-8 w-8 animate-spin text-blue-700" />
+        </div>
+      ) : filtered.length === 0 ? (
         <div className="text-center py-12 text-gray-500">
-          <p className="text-lg font-medium">No schools found</p>
-          <p className="text-sm mt-1">Try a different search term or contact us to add your school.</p>
+          <p className="font-medium">No schools found</p>
+          <p className="text-sm mt-1">Try a different search term.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

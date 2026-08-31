@@ -13,11 +13,11 @@ import { useCartStore } from "@/store/cart-store"
 import { formatPrice } from "@/lib/utils-shop"
 import { useState } from "react"
 
-// Sample coupons for demo
-const DEMO_COUPONS: Record<string, { type: "percentage" | "fixed"; value: number; min_order?: number }> = {
-  SCHOOL10: { type: "percentage", value: 10, min_order: 500 },
-  FIRST50: { type: "fixed", value: 50 },
-  SAVE100: { type: "fixed", value: 100, min_order: 1000 },
+// Sample coupons for demo (will be replaced with DB coupons)
+const DEMO_COUPONS: Record<string, { discount_type: "percentage" | "fixed"; discount_value: number; min_order_amount?: number }> = {
+  SCHOOL10: { discount_type: "percentage", discount_value: 10, min_order_amount: 50000 },
+  FIRST50:  { discount_type: "fixed",      discount_value: 5000 },
+  SAVE100:  { discount_type: "fixed",      discount_value: 10000, min_order_amount: 100000 },
 }
 
 export default function CartPage() {
@@ -34,15 +34,19 @@ export default function CartPage() {
   function handleApplyCoupon() {
     const code = couponInput.trim().toUpperCase()
     const found = DEMO_COUPONS[code]
-    if (!found) {
-      setCouponError("Invalid coupon code.")
+    if (!found) { setCouponError("Invalid coupon code."); return }
+    if (found.min_order_amount && subtotal < found.min_order_amount) {
+      setCouponError(`Minimum order of ${formatPrice(found.min_order_amount)} required.`)
       return
     }
-    if (found.min_order && subtotal < found.min_order) {
-      setCouponError(`Minimum order of ${formatPrice(found.min_order)} required.`)
-      return
-    }
-    applyCoupon({ id: code, code, ...found, is_active: true })
+    applyCoupon({
+      id: code, code, is_active: true,
+      discount_type: found.discount_type,
+      discount_value: found.discount_value,
+      min_order_amount: found.min_order_amount,
+      usage_count: 0,
+      created_at: new Date().toISOString(),
+    })
     setCouponError("")
   }
 
