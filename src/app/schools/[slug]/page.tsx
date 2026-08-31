@@ -22,15 +22,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SchoolStorePage({ params }: Props) {
   const { slug } = await params
-  const [school, products, kit] = await Promise.all([
-    getSchoolBySlug(slug),
-    getProductsForSchool("").then(() => null), // placeholder — will use school id below
-    Promise.resolve(null),
-  ])
-
+  const school = await getSchoolBySlug(slug)
   if (!school) notFound()
 
-  // now fetch with real school id
   const [schoolProducts, uniformKit] = await Promise.all([
     getProductsForSchool(school.id),
     getUniformKitForSchool(school.id),

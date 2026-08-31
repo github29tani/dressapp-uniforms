@@ -1,51 +1,77 @@
 import Link from "next/link"
 import {
   TrendingUp, ShoppingBag, Users, GraduationCap, Package,
-  AlertTriangle, Clock, RefreshCw, ArrowRight, ArrowUpRight,
+  AlertTriangle, Clock, RefreshCw, ArrowRight,
 } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { LinkButton } from "@/components/ui/link-button"
+import { Button } from "@/components/ui/button"
+import { createClient } from "@/lib/supabase/server"
 import { formatPrice } from "@/lib/utils-shop"
-
-const STATS = [
-  { label: "Total Revenue", value: formatPrice(482500), icon: TrendingUp, change: "+18%", color: "text-green-600" },
-  { label: "Total Orders", value: "1,284", icon: ShoppingBag, change: "+12%", color: "text-blue-600" },
-  { label: "Customers", value: "896", icon: Users, change: "+9%", color: "text-indigo-600" },
-  { label: "Active Schools", value: "24", icon: GraduationCap, change: "+3", color: "text-purple-600" },
-  { label: "Products", value: "312", icon: Package, change: "+15", color: "text-amber-600" },
-  { label: "Low Stock", value: "8", icon: AlertTriangle, change: "items", color: "text-orange-600" },
-  { label: "Pending Orders", value: "43", icon: Clock, change: "today", color: "text-yellow-600" },
-  { label: "Return Requests", value: "7", icon: RefreshCw, change: "open", color: "text-red-600" },
-]
-
-const RECENT_ORDERS = [
-  { id: "SK20241210", customer: "Priya Sharma", school: "DPS Greater Noida", amount: 4200, status: "confirmed" },
-  { id: "SK20241209", customer: "Rahul Gupta", school: "Ryan International", amount: 1499, status: "shipped" },
-  { id: "SK20241209", customer: "Neha Verma", school: "Amity Gurugram", amount: 2850, status: "placed" },
-  { id: "SK20241208", customer: "Amit Kumar", school: "Kendriya Vidyalaya", amount: 699, status: "delivered" },
-  { id: "SK20241208", customer: "Sunita Singh", school: "Modern School", amount: 3100, status: "packed" },
-]
+import type { OrderStatus } from "@/types"
 
 const STATUS_COLORS: Record<string, string> = {
-  placed: "bg-gray-100 text-gray-700",
-  confirmed: "bg-blue-100 text-blue-700",
-  packed: "bg-indigo-100 text-indigo-700",
-  shipped: "bg-amber-100 text-amber-700",
-  delivered: "bg-green-100 text-green-700",
-  cancelled: "bg-red-100 text-red-700",
+  placed:           "bg-gray-100 text-gray-700",
+  confirmed:        "bg-blue-100 text-blue-700",
+  packed:           "bg-indigo-100 text-indigo-700",
+  shipped:          "bg-amber-100 text-amber-700",
+  out_for_delivery: "bg-orange-100 text-orange-700",
+  delivered:        "bg-green-100 text-green-700",
+  cancelled:        "bg-red-100 text-red-700",
+  return_requested: "bg-yellow-100 text-yellow-700",
+  returned:         "bg-gray-100 text-gray-500",
 }
 
 const ADMIN_NAV = [
-  { label: "Products", href: "/admin/products", icon: Package },
-  { label: "Schools", href: "/admin/schools", icon: GraduationCap },
-  { label: "Orders", href: "/admin/orders", icon: ShoppingBag },
+  { label: "Products",  href: "/admin/products",  icon: Package },
+  { label: "Schools",   href: "/admin/schools",   icon: GraduationCap },
+  { label: "Orders",    href: "/admin/orders",    icon: ShoppingBag },
   { label: "Inventory", href: "/admin/inventory", icon: AlertTriangle },
   { label: "Customers", href: "/admin/customers", icon: Users },
 ]
 
-export default function AdminDashboardPage() {
+export default async function AdminDashboardPage() {
+  const supabase = await createClient()
+
+  // Fetch all stats in parallel
+  const [
+    { count: totalOrders },
+    { count: totalCustomers },
+    { count: totalSchools },
+    { count: totalProducts },
+    { data: revenueData },
+    { data: pendingOrders },
+    { data: lowStockData },
+    { data: returnRequests },
+    { data: recentOrders },
+  ] = await Promise.all([
+    supabase.from("orders").select("*", { count: "exact", head: true }),
+    supabase.from("profiles").select("*", { count: "exact", head: true }),
+    supabase.from("schools").select("*", { count: "exact", head: true }).eq("is_active", true),
+    supabase.from("products").select("*", { count: "exact", head: true }).eq("is_active", true),
+    supabase.from("orders").select("total").in("status", ["confirmed", "packed", "shipped", "out_for_delivery", "delivered"]),
+    supabase.from("orders").select("id", { count: "exact", head: false }).in("status", ["placed", "confirmed"]),
+    supabase.from("inventory").select("id", { count: "exact", head: false }).lte("stock", 5).gt("stock", 0),
+    supabase.from("returns").select("id", { count: "exact", head: false }).eq("status", "requested"),
+    supabase.from("orders")
+      .select("id, order_number, total, status, created_at, user:profiles(full_name)")
+      .order("created_at", { ascending: false })
+      .limit(5),
+  ])
+
+  const totalRevenue = (revenueData ?? []).reduce((sum: number, o: { total: number }) => sum + (o.total ?? 0), 0)
+
+  const STATS = [
+    { label: "Total Revenue",   value: formatPrice(totalRevenue),      icon: TrendingUp,  color: "text-green-600" },
+    { label: "Total Orders",    value: String(totalOrders ?? 0),       icon: ShoppingBag, color: "text-blue-600" },
+    { label: "Customers",       value: String(totalCustomers ?? 0),    icon: Users,       color: "text-indigo-600" },
+    { label: "Active Schools",  value: String(totalSchools ?? 0),      icon: GraduationCap, color: "text-purple-600" },
+    { label: "Products",        value: String(totalProducts ?? 0),     icon: Package,     color: "text-amber-600" },
+    { label: "Low Stock",       value: String(lowStockData?.length ?? 0), icon: AlertTriangle, color: "text-orange-600" },
+    { label: "Pending Orders",  value: String(pendingOrders?.length ?? 0), icon: Clock,    color: "text-yellow-600" },
+    { label: "Return Requests", value: String(returnRequests?.length ?? 0), icon: RefreshCw, color: "text-red-600" },
+  ]
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Admin header */}
@@ -55,11 +81,7 @@ export default function AdminDashboardPage() {
             <GraduationCap className="h-6 w-6 text-blue-700" />
             <span className="font-bold text-gray-900">DressApp Uniforms Admin</span>
           </div>
-          <div className="flex items-center gap-2">
-            <LinkButton href="/" target="_blank" variant="outline" size="sm">
-              View Store ↗
-            </LinkButton>
-          </div>
+          <LinkButton href="/" variant="outline" size="sm">View Store ↗</LinkButton>
         </div>
       </div>
 
@@ -68,8 +90,7 @@ export default function AdminDashboardPage() {
         <div className="flex flex-wrap gap-2 mb-8">
           {ADMIN_NAV.map((item) => (
             <LinkButton key={item.href} href={item.href} variant="outline" size="sm" className="gap-1.5">
-              <item.icon className="h-4 w-4" />
-              {item.label}
+              <item.icon className="h-4 w-4" /> {item.label}
             </LinkButton>
           ))}
         </div>
@@ -83,7 +104,6 @@ export default function AdminDashboardPage() {
               <CardContent className="p-4">
                 <div className="flex items-center justify-between mb-2">
                   <stat.icon className={`h-5 w-5 ${stat.color}`} />
-                  <span className={`text-xs font-medium ${stat.color}`}>{stat.change}</span>
                 </div>
                 <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
                 <p className="text-xs text-gray-500 mt-0.5">{stat.label}</p>
@@ -105,29 +125,28 @@ export default function AdminDashboardPage() {
               <table className="w-full text-sm">
                 <thead className="bg-gray-50 border-y">
                   <tr>
-                    {["Order", "Customer", "School", "Amount", "Status", "Actions"].map((h) => (
-                      <th key={h} className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                        {h}
-                      </th>
+                    {["Order", "Customer", "Amount", "Status", "Date"].map((h) => (
+                      <th key={h} className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide whitespace-nowrap">{h}</th>
                     ))}
                   </tr>
                 </thead>
                 <tbody className="divide-y">
-                  {RECENT_ORDERS.map((order, i) => (
-                    <tr key={i} className="hover:bg-gray-50">
-                      <td className="px-4 py-3 font-medium text-gray-900">#{order.id}</td>
-                      <td className="px-4 py-3 text-gray-600">{order.customer}</td>
-                      <td className="px-4 py-3 text-gray-600">{order.school}</td>
-                      <td className="px-4 py-3 font-medium">{formatPrice(order.amount)}</td>
+                  {(recentOrders ?? []).length === 0 ? (
+                    <tr><td colSpan={5} className="text-center py-8 text-gray-400">No orders yet</td></tr>
+                  ) : (recentOrders ?? []).map((order: Record<string, unknown>) => (
+                    <tr key={order.id as string} className="hover:bg-gray-50">
+                      <td className="px-4 py-3 font-medium text-gray-900">#{order.order_number as string}</td>
+                      <td className="px-4 py-3 text-gray-600">
+                        {(order.user as { full_name?: string })?.full_name ?? "Customer"}
+                      </td>
+                      <td className="px-4 py-3 font-medium">{formatPrice(order.total as number)}</td>
                       <td className="px-4 py-3">
-                        <span className={`text-xs font-medium px-2 py-0.5 rounded-full capitalize ${STATUS_COLORS[order.status]}`}>
-                          {order.status}
+                        <span className={`text-xs font-medium px-2 py-0.5 rounded-full capitalize ${STATUS_COLORS[order.status as string] ?? ""}`}>
+                          {(order.status as string).replace(/_/g, " ")}
                         </span>
                       </td>
-                      <td className="px-4 py-3">
-                        <Button variant="ghost" size="sm" className="h-7 text-blue-700 text-xs">
-                          View
-                        </Button>
+                      <td className="px-4 py-3 text-gray-500 text-xs">
+                        {new Date(order.created_at as string).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "2-digit" })}
                       </td>
                     </tr>
                   ))}

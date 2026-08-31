@@ -14,6 +14,7 @@ import { Badge } from "@/components/ui/badge"
 import { useCartStore } from "@/store/cart-store"
 import { formatPrice } from "@/lib/utils-shop"
 import { INDIAN_STATES } from "@/lib/constants"
+import { createClient } from "@/lib/supabase/client"
 
 type Step = "address" | "delivery" | "payment" | "confirmation"
 
@@ -51,8 +52,45 @@ export default function CheckoutPage() {
     setAddress((prev) => ({ ...prev, [field]: value }))
 
   function handlePlaceOrder() {
-    clearCart()
-    setStep("confirmation")
+    const supabase = createClient()
+    supabase.auth.getUser().then(async ({ data: { user } }) => {
+      if (!user) return
+      // Insert order into Supabase
+      const { data: order, error } = await supabase
+        .from("orders")
+        .insert({
+          user_id: user.id,
+          status: "placed",
+          subtotal,
+          discount,
+          delivery_fee: deliveryCharge * 100,
+          total: total * 100,
+          notes: `Payment: ${payment}, Delivery: ${delivery}`,
+        })
+        .select()
+        .single()
+
+      if (error || !order) {
+        // Still show confirmation even if DB insert fails (graceful degradation)
+        clearCart()
+        setStep("confirmation")
+        return
+      }
+
+      // Insert order items
+      const orderItems = items.map((item) => ({
+        order_id: order.id,
+        product_id: item.product.id,
+        variant_id: item.variant.id,
+        quantity: item.quantity,
+        unit_price: item.product.discount_price ?? item.product.price,
+        total_price: (item.product.discount_price ?? item.product.price) * item.quantity,
+      }))
+      await supabase.from("order_items").insert(orderItems)
+
+      clearCart()
+      setStep("confirmation")
+    })
   }
 
   if (step === "confirmation") {

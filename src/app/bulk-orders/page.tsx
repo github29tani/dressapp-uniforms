@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
+import { createClient } from "@/lib/supabase/client"
 
 const FEATURES = [
   { icon: Package, title: "Bulk Uniform Orders", desc: "Order 50+ uniforms at wholesale rates with priority processing." },
@@ -25,8 +25,19 @@ export default function BulkOrdersPage() {
   const set = (field: string, value: string) =>
     setForm((prev) => ({ ...prev, [field]: value }))
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    const supabase = createClient()
+    await supabase.from("bulk_orders").insert({
+      school_name:    form.school_name,
+      contact_person: form.contact_person,
+      phone:          form.phone,
+      email:          form.email,
+      requirements:   form.requirements || null,
+      estimated_qty:  form.estimated_quantity ? parseInt(form.estimated_quantity) : null,
+      required_date:  form.required_date || null,
+      status:         "new",
+    })
     setSubmitted(true)
   }
 

@@ -25,6 +25,7 @@ export function Header() {
   const wishlistCount = useWishlistStore((s) => s.items.length)
   const [searchQuery, setSearchQuery] = useState("")
   const [showSearch, setShowSearch] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const router = useRouter()
 
   function handleSearch(e: React.FormEvent) {
@@ -34,6 +35,10 @@ export function Header() {
       setShowSearch(false)
       setSearchQuery("")
     }
+  }
+
+  function closeMenu() {
+    setMenuOpen(false)
   }
 
   return (
@@ -49,13 +54,13 @@ export function Header() {
         <div className="container mx-auto px-4 h-16 flex items-center gap-3">
 
           {/* Mobile menu */}
-          <Sheet>
+          <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
             <SheetTrigger className="lg:hidden shrink-0 inline-flex items-center justify-center rounded-lg h-9 w-9 hover:bg-gray-100 transition-colors">
               <Menu className="h-5 w-5" />
             </SheetTrigger>
             <SheetContent side="left" className="w-72 p-0">
               <div className="p-5 border-b bg-blue-700">
-                <Link href="/" className="flex items-center gap-2">
+                <Link href="/" className="flex items-center gap-2" onClick={closeMenu}>
                   <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center">
                     <span className="text-blue-700 font-black text-sm">D</span>
                   </div>
@@ -70,6 +75,7 @@ export function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={closeMenu}
                     className={`px-3 py-2.5 rounded-lg font-medium text-sm transition-colors ${
                       link.highlight
                         ? "bg-blue-50 text-blue-700 font-semibold"
@@ -83,13 +89,13 @@ export function Header() {
                 ))}
               </nav>
               <div className="px-3 pt-2 border-t mx-3">
-                <Link href="/account" className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+                <Link href="/account" onClick={closeMenu} className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
                   <User className="h-4 w-4" /> My Account
                 </Link>
-                <Link href="/orders" className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+                <Link href="/orders" onClick={closeMenu} className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
                   <ShoppingCart className="h-4 w-4" /> My Orders
                 </Link>
-                <Link href="/wishlist" className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
+                <Link href="/wishlist" onClick={closeMenu} className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-gray-700 hover:bg-gray-100">
                   <Heart className="h-4 w-4" /> Wishlist
                 </Link>
               </div>
