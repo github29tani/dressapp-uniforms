@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import {
   Package, Heart, MapPin, RefreshCw, Users,
-  ChevronRight, LogOut, Settings, Loader2,
+  ChevronRight, LogOut, Settings, Loader2, GraduationCap,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { LinkButton } from "@/components/ui/link-button"
@@ -13,6 +13,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { createClient } from "@/lib/supabase/client"
 import type { User } from "@supabase/supabase-js"
+import type { Student } from "@/types"
 
 const MENU_ITEMS = [
   { icon: Package, label: "My Orders", desc: "Track and manage orders", href: "/orders" },
@@ -26,13 +27,22 @@ const MENU_ITEMS = [
 export default function AccountPage() {
   const router = useRouter()
   const [user, setUser] = useState<User | null>(null)
+  const [children, setChildren] = useState<(Student & { school?: { name: string; slug: string } | null })[]>([])
   const [loading, setLoading] = useState(true)
   const [signingOut, setSigningOut] = useState(false)
 
   useEffect(() => {
     const supabase = createClient()
-    supabase.auth.getUser().then(({ data }) => {
+    supabase.auth.getUser().then(async ({ data }) => {
       setUser(data.user)
+      if (data.user) {
+        const { data: kids } = await supabase
+          .from("students")
+          .select("*, school:schools(name, slug)")
+          .eq("user_id", data.user.id)
+          .order("created_at")
+        setChildren((kids ?? []) as (Student & { school?: { name: string; slug: string } | null })[])
+      }
       setLoading(false)
     })
   }, [])
@@ -89,33 +99,49 @@ export default function AccountPage() {
           <h3 className="font-semibold text-gray-900">My Children</h3>
           <Link href="/account/children" className="text-sm text-blue-700 hover:underline">+ Add Child</Link>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {[
-            { name: "Aarav", class: "Class 6", school: "Delhi Public School", gender: "Boys" },
-            { name: "Ananya", class: "Class 3", school: "Delhi Public School", gender: "Girls" },
-          ].map((child) => (
-            <Card key={child.name} className="hover:shadow-sm transition-shadow cursor-pointer group">
-              <CardContent className="p-4 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold flex-shrink-0">
-                  {child.name[0]}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="font-medium text-gray-900">{child.name}</p>
-                  <p className="text-xs text-gray-500">{child.class} · {child.gender}</p>
-                  <p className="text-xs text-gray-400 truncate">{child.school}</p>
-                </div>
-                <LinkButton
-                  href="/schools/delhi-public-school"
-                  variant="ghost"
-                  size="sm"
-                  className="flex-shrink-0 text-xs text-blue-700"
-                >
-                  Shop →
-                </LinkButton>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        {children.length === 0 ? (
+          <div className="text-center py-6 border-2 border-dashed border-gray-200 rounded-xl">
+            <GraduationCap className="h-8 w-8 mx-auto text-gray-300 mb-2" />
+            <p className="text-sm text-gray-500 mb-3">No children added yet</p>
+            <LinkButton href="/account/children" variant="outline" size="sm">Add a Child</LinkButton>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {children.map((child) => (
+              <Card key={child.id} className="hover:shadow-sm transition-shadow">
+                <CardContent className="p-4 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold flex-shrink-0">
+                    {child.name[0].toUpperCase()}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-medium text-gray-900">{child.name}</p>
+                    <p className="text-xs text-gray-500">{child.class ?? "—"}{child.gender ? ` · ${child.gender}` : ""}</p>
+                    <p className="text-xs text-gray-400 truncate">{child.school?.name ?? "No school set"}</p>
+                  </div>
+                  {child.school?.slug ? (
+                    <LinkButton
+                      href={`/schools/${child.school.slug}`}
+                      variant="ghost"
+                      size="sm"
+                      className="flex-shrink-0 text-xs text-blue-700"
+                    >
+                      Shop →
+                    </LinkButton>
+                  ) : (
+                    <LinkButton
+                      href="/schools"
+                      variant="ghost"
+                      size="sm"
+                      className="flex-shrink-0 text-xs text-gray-400"
+                    >
+                      Pick School
+                    </LinkButton>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Menu */}

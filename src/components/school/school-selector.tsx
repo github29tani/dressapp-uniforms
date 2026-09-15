@@ -5,6 +5,7 @@ import { Search, Loader2 } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { SchoolCard } from "@/components/school/school-card"
 import { createClient } from "@/lib/supabase/client"
+import { getLocalSchools } from "@/lib/data"
 import type { School } from "@/types"
 
 export function SchoolSelector() {
@@ -13,21 +14,33 @@ export function SchoolSelector() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const supabase = createClient()
-    supabase
-      .from("schools")
-      .select("*")
-      .eq("is_active", true)
-      .order("name")
-      .then(({ data }) => {
+    async function fetchSchools() {
+      try {
+        const supabase = createClient()
+        const { data, error } = await supabase
+          .from("schools")
+          .select("*")
+          .eq("is_active", true)
+          .order("name")
+        
+        if (error) throw error
+        
         setSchools(
           (data ?? []).map((s: Record<string, unknown>) => ({
             ...s,
             location: [s.address, s.city, s.state].filter(Boolean).join(", ") || (s.city as string) || "",
           })) as School[]
         )
+      } catch (error) {
+        // Fallback to local data
+        console.log("Using local schools data")
+        setSchools(getLocalSchools())
+      } finally {
         setLoading(false)
-      })
+      }
+    }
+    
+    fetchSchools()
   }, [])
 
   const filtered = schools.filter((s) =>

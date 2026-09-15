@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import { Plus, Search, Pencil, Trash2, Package, Eye, EyeOff, Loader2, X, Check } from "lucide-react"
+import { Plus, Search, Pencil, Trash2, Package, Eye, EyeOff, Loader2, Layers, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -9,11 +9,13 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Separator } from "@/components/ui/separator"
 import { createClient } from "@/lib/supabase/client"
 import { formatPrice } from "@/lib/utils-shop"
-import type { Product, Category } from "@/types"
+import type { Product, Category, ProductVariant } from "@/types"
 
 const EMPTY_FORM = { name: "", description: "", category_id: "", gender: "unisex" as "boys" | "girls" | "unisex", price: "", discount_price: "" }
+const EMPTY_VARIANT = { size: "", sku: "", price: "", stock: "0" }
 
 export default function AdminProductsPage() {
   const [products, setProducts] = useState<Product[]>([])
@@ -26,6 +28,12 @@ export default function AdminProductsPage() {
   const [form, setForm] = useState(EMPTY_FORM)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  // Variant management
+  const [showVariants, setShowVariants] = useState(false)
+  const [variantProduct, setVariantProduct] = useState<Product | null>(null)
+  const [variantForm, setVariantForm] = useState(EMPTY_VARIANT)
+  const [savingVariant, setSavingVariant] = useState(false)
+  const [variantError, setVariantError] = useState<string | null>(null)
 
   const supabase = createClient()
 
@@ -96,6 +104,49 @@ export default function AdminProductsPage() {
   async function handleDelete(id: string) {
     if (!confirm("Delete this product? This cannot be undone.")) return
     await supabase.from("products").delete().eq("id", id)
+    load()
+  }
+
+  function openVariants(p: Product) {
+    setVariantProduct(p)
+    setVariantForm(EMPTY_VARIANT)
+    setVariantError(null)
+    setShowVariants(true)
+  }
+
+  async function handleAddVariant() {
+    if (!variantProduct || !variantForm.size.trim()) { setVariantError("Size is required."); return }
+    setSavingVariant(true); setVariantError(null)
+    const { error } = await supabase.from("product_variants").insert({
+      product_id: variantProduct.id,
+      size: variantForm.size.trim(),
+      sku: variantForm.sku.trim() || null,
+      price: variantForm.price ? Math.round(Number(variantForm.price) * 100) : null,
+      stock: parseInt(variantForm.stock) || 0,
+    })
+    if (error) { setVariantError(error.message); setSavingVariant(false); return }
+    setSavingVariant(false)
+    setVariantForm(EMPTY_VARIANT)
+    // Refresh variant list
+    const { data } = await supabase.from("product_variants").select("*").eq("product_id", variantProduct.id)
+    setVariantProduct((p) => p ? { ...p, variants: (data ?? []) as ProductVariant[] } : p)
+    load()
+  }
+
+  async function handleDeleteVariant(variantId: string) {
+    if (!variantProduct) return
+    await supabase.from("product_variants").delete().eq("id", variantId)
+    const { data } = await supabase.from("product_variants").select("*").eq("product_id", variantProduct.id)
+    setVariantProduct((p) => p ? { ...p, variants: (data ?? []) as ProductVariant[] } : p)
+    load()
+  }
+
+  async function handleUpdateVariantStock(variantId: string, stock: number) {
+    await supabase.from("product_variants").update({ stock }).eq("id", variantId)
+    await supabase.from("inventory").upsert({ variant_id: variantId, stock, updated_at: new Date().toISOString() })
+    if (variantProduct) {
+      setVariantProduct((p) => p ? { ...p, variants: p.variants.map((v) => v.id === variantId ? { ...v, stock } : v) } : p)
+    }
     load()
   }
 

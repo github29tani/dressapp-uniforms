@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { CheckCircle, Building2, Package, Palette, Truck } from "lucide-react"
+import { CheckCircle, Building2, Package, Palette, Truck, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -17,6 +17,8 @@ const FEATURES = [
 
 export default function BulkOrdersPage() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
+  const [submitting, setSubmitting] = useState(false)
   const [form, setForm] = useState({
     school_name: "", contact_person: "", phone: "", email: "",
     requirements: "", estimated_quantity: "", required_date: "",
@@ -27,8 +29,9 @@ export default function BulkOrdersPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    setSubmitting(true); setSubmitError(null)
     const supabase = createClient()
-    await supabase.from("bulk_orders").insert({
+    const { error } = await supabase.from("bulk_orders").insert({
       school_name:    form.school_name,
       contact_person: form.contact_person,
       phone:          form.phone,
@@ -38,6 +41,8 @@ export default function BulkOrdersPage() {
       required_date:  form.required_date || null,
       status:         "new",
     })
+    setSubmitting(false)
+    if (error) { setSubmitError("Failed to submit request. Please try again or email us directly."); return }
     setSubmitted(true)
   }
 
@@ -127,8 +132,11 @@ export default function BulkOrdersPage() {
                       />
                     </div>
                   </div>
-                  <Button type="submit" className="w-full bg-blue-700 hover:bg-blue-800 h-11">
-                    Submit Request
+                  {submitError && (
+                    <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">{submitError}</div>
+                  )}
+                  <Button type="submit" className="w-full bg-blue-700 hover:bg-blue-800 h-11" disabled={submitting}>
+                    {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : "Submit Request"}
                   </Button>
                 </form>
               )}

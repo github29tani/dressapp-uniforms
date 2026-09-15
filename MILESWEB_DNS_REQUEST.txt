@@ -1,0 +1,30 @@
+Subject: DNS Records Setup Request for dressapp.in
+
+Hello MilesWeb Support,
+
+I need help adding DNS records for my domain dressapp.in to point to my Netlify hosting.
+
+Domain: dressapp.in
+Registrant Email: dressappcare@gmail.com
+
+Please add the following DNS records:
+
+1. A Record:
+   - Type: A
+   - Host/Name: @ (root domain)
+   - Points to: 75.2.60.5
+   - TTL: 3600
+
+2. CNAME Record:
+   - Type: CNAME
+   - Host/Name: www
+   - Points to: dressapp-uniforms.netlify.app
+   - TTL: 3600
+
+These records will direct my domain to my Netlify-hosted application.
+
+Thank you for your assistance!
+
+Best regards,
+Tanishq T
+Phone: 8882872033

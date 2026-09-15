@@ -1,0 +1,4896 @@
+[
+  {
+    "id": "8mz90va55q9",
+    "name": "T-Shirt",
+    "slug": "t-shirt-david-0",
+    "description": "T-Shirt for David. Boys, Summer, T-Shirt",
+    "category_id": "hn1xp7l7fv4",
+    "gender": "boys",
+    "price": 32000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.004Z",
+    "images": [
+      {
+        "id": "pcv4ad1cxa",
+        "product_id": "8mz90va55q9",
+        "url": "/images/products/placeholder-t-shirt.jpg",
+        "alt_text": "T-Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "f8vxlxsywbt",
+        "product_id": "8mz90va55q9",
+        "size": "28 - Blue",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "4qqd1vs9sj6",
+        "product_id": "8mz90va55q9",
+        "size": "30 - Blue",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "kbe52jrrqg",
+        "product_id": "8mz90va55q9",
+        "size": "32 - Blue",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "z09p1135r2",
+        "product_id": "8mz90va55q9",
+        "size": "34 - Blue",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "96k8fa8mbn",
+        "product_id": "8mz90va55q9",
+        "size": "36 - Blue",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "dj6owirc18p",
+        "product_id": "8mz90va55q9",
+        "size": "38 - Blue",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "pv7ba7mt7or",
+        "product_id": "8mz90va55q9",
+        "size": "40 - Blue",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "k3o42tmslw",
+        "product_id": "8mz90va55q9",
+        "size": "42 - Blue",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "pysxj3av91",
+        "product_id": "8mz90va55q9",
+        "size": "28 - Green",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "ru8fl1ojwxa",
+        "product_id": "8mz90va55q9",
+        "size": "30 - Green",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "pz38lofhes",
+        "product_id": "8mz90va55q9",
+        "size": "32 - Green",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "9zu6fj57vu",
+        "product_id": "8mz90va55q9",
+        "size": "34 - Green",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "ufq32zeg68r",
+        "product_id": "8mz90va55q9",
+        "size": "36 - Green",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "72xbd7rgati",
+        "product_id": "8mz90va55q9",
+        "size": "38 - Green",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "jiud1ic3sh",
+        "product_id": "8mz90va55q9",
+        "size": "40 - Green",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "ljebg3i7i5j",
+        "product_id": "8mz90va55q9",
+        "size": "42 - Green",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "o5xpydqjx5",
+        "product_id": "8mz90va55q9",
+        "size": "28 - Red",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "t66ja0mv4cr",
+        "product_id": "8mz90va55q9",
+        "size": "30 - Red",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "8tjpu78hwlh",
+        "product_id": "8mz90va55q9",
+        "size": "32 - Red",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "triqaquhc6n",
+        "product_id": "8mz90va55q9",
+        "size": "34 - Red",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "0uxbse57juf",
+        "product_id": "8mz90va55q9",
+        "size": "36 - Red",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "jahcezaraoe",
+        "product_id": "8mz90va55q9",
+        "size": "38 - Red",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "wtqk9cmp19j",
+        "product_id": "8mz90va55q9",
+        "size": "40 - Red",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "be7wo204zxm",
+        "product_id": "8mz90va55q9",
+        "size": "42 - Red",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "14csjdjjhtt",
+        "product_id": "8mz90va55q9",
+        "size": "28 - Yellow",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "2qyfi24thg6",
+        "product_id": "8mz90va55q9",
+        "size": "30 - Yellow",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "cwhpf8fws9",
+        "product_id": "8mz90va55q9",
+        "size": "32 - Yellow",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "5elx5gc908i",
+        "product_id": "8mz90va55q9",
+        "size": "34 - Yellow",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "tw6n7zc2gc",
+        "product_id": "8mz90va55q9",
+        "size": "36 - Yellow",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "g9vtwkdvujr",
+        "product_id": "8mz90va55q9",
+        "size": "38 - Yellow",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "tiiezv0dq0o",
+        "product_id": "8mz90va55q9",
+        "size": "40 - Yellow",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "rwcoyvuzox",
+        "product_id": "8mz90va55q9",
+        "size": "42 - Yellow",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      }
+    ]
+  },
+  {
+    "id": "ar81v4d556u",
+    "name": "Lower",
+    "slug": "lower-david-1",
+    "description": "Lower for David. Boys, Lower, Summer",
+    "category_id": "hn1xp7l7fv4",
+    "gender": "boys",
+    "price": 33000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.005Z",
+    "images": [
+      {
+        "id": "mnbfg2d906e",
+        "product_id": "ar81v4d556u",
+        "url": "/images/products/placeholder-lower.jpg",
+        "alt_text": "Lower",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "vtsa8xmoxk",
+        "product_id": "ar81v4d556u",
+        "size": "28 - Blue",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "odsjaoymhl",
+        "product_id": "ar81v4d556u",
+        "size": "30 - Blue",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "rbnmqyt7go",
+        "product_id": "ar81v4d556u",
+        "size": "32 - Blue",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "u3i9qkxptac",
+        "product_id": "ar81v4d556u",
+        "size": "34 - Blue",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "oqz6ihcogzj",
+        "product_id": "ar81v4d556u",
+        "size": "36 - Blue",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "q0rd8mpih3j",
+        "product_id": "ar81v4d556u",
+        "size": "38 - Blue",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "h93g5osaq2",
+        "product_id": "ar81v4d556u",
+        "size": "40 - Blue",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "6l3cy97t5sk",
+        "product_id": "ar81v4d556u",
+        "size": "42 - Blue",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "qc1vdqbr2g",
+        "product_id": "ar81v4d556u",
+        "size": "28 - Green",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "m5ib5aw91mn",
+        "product_id": "ar81v4d556u",
+        "size": "30 - Green",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "vthdjdcs8bc",
+        "product_id": "ar81v4d556u",
+        "size": "32 - Green",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "54bk3k7m6ha",
+        "product_id": "ar81v4d556u",
+        "size": "34 - Green",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "nsaskbll8e",
+        "product_id": "ar81v4d556u",
+        "size": "36 - Green",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "srebpzneo7e",
+        "product_id": "ar81v4d556u",
+        "size": "38 - Green",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "rj6hysvysgj",
+        "product_id": "ar81v4d556u",
+        "size": "40 - Green",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "f5pa5akl8ih",
+        "product_id": "ar81v4d556u",
+        "size": "42 - Green",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "bw7sxmdy32m",
+        "product_id": "ar81v4d556u",
+        "size": "28 - Red",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "6ngln11tfkr",
+        "product_id": "ar81v4d556u",
+        "size": "30 - Red",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "5mjkq9f2w46",
+        "product_id": "ar81v4d556u",
+        "size": "32 - Red",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "mjtf6q7os1d",
+        "product_id": "ar81v4d556u",
+        "size": "34 - Red",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "zj0buskxg7b",
+        "product_id": "ar81v4d556u",
+        "size": "36 - Red",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "c6cyphh8vso",
+        "product_id": "ar81v4d556u",
+        "size": "38 - Red",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "xg51yxr0w88",
+        "product_id": "ar81v4d556u",
+        "size": "40 - Red",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "au3l7n0gqa",
+        "product_id": "ar81v4d556u",
+        "size": "42 - Red",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "5uny8qkcxh6",
+        "product_id": "ar81v4d556u",
+        "size": "28 - Yellow",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "514xtukci3s",
+        "product_id": "ar81v4d556u",
+        "size": "30 - Yellow",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "or1flqibujd",
+        "product_id": "ar81v4d556u",
+        "size": "32 - Yellow",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "v7016llc2si",
+        "product_id": "ar81v4d556u",
+        "size": "34 - Yellow",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "fpr36eqkecq",
+        "product_id": "ar81v4d556u",
+        "size": "36 - Yellow",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "bmsc4mmhclj",
+        "product_id": "ar81v4d556u",
+        "size": "38 - Yellow",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "fd9olaqkior",
+        "product_id": "ar81v4d556u",
+        "size": "40 - Yellow",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "klaxx5714e",
+        "product_id": "ar81v4d556u",
+        "size": "42 - Yellow",
+        "price": 33000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      }
+    ]
+  },
+  {
+    "id": "3t0npqtfkw8",
+    "name": "Shirt",
+    "slug": "shirt-david-2",
+    "description": "Shirt for David. Boys, Shirt, Summer",
+    "category_id": "hn1xp7l7fv4",
+    "gender": "boys",
+    "price": 32000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.005Z",
+    "images": [
+      {
+        "id": "8swcdn7sp6x",
+        "product_id": "3t0npqtfkw8",
+        "url": "/images/products/placeholder-shirt.jpg",
+        "alt_text": "Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "1s55pauj7d4",
+        "product_id": "3t0npqtfkw8",
+        "size": "24",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "59cz8egs8zp",
+        "product_id": "3t0npqtfkw8",
+        "size": "26",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "63f0xi4susl",
+        "product_id": "3t0npqtfkw8",
+        "size": "28",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "vmt00e7kmyi",
+        "product_id": "3t0npqtfkw8",
+        "size": "30",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "857cko2kub6",
+        "product_id": "3t0npqtfkw8",
+        "size": "32",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "7uxtkfbgsia",
+        "product_id": "3t0npqtfkw8",
+        "size": "34",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "oujlj2sylqh",
+        "product_id": "3t0npqtfkw8",
+        "size": "36",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "omanjzth72",
+        "product_id": "3t0npqtfkw8",
+        "size": "38",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "88cw82lpa83",
+        "product_id": "3t0npqtfkw8",
+        "size": "40",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "dvkou31rtk4",
+        "product_id": "3t0npqtfkw8",
+        "size": "42",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "kbcpzvhvdtn",
+        "product_id": "3t0npqtfkw8",
+        "size": "44",
+        "price": 32000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      }
+    ]
+  },
+  {
+    "id": "f73yofl2bhm",
+    "name": "Pant",
+    "slug": "pant-david-3",
+    "description": "Pant for David. Boys, Pant, Summer",
+    "category_id": "hn1xp7l7fv4",
+    "gender": "boys",
+    "price": 38000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.005Z",
+    "images": [
+      {
+        "id": "eap7gko0x1q",
+        "product_id": "f73yofl2bhm",
+        "url": "/images/products/placeholder-pant.jpg",
+        "alt_text": "Pant",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "wf9zdsgsblq",
+        "product_id": "f73yofl2bhm",
+        "size": "22",
+        "price": 38000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "mfskzpfo8yp",
+        "product_id": "f73yofl2bhm",
+        "size": "24",
+        "price": 38000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "ygi16nix4hh",
+        "product_id": "f73yofl2bhm",
+        "size": "26",
+        "price": 38000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "wsjscg5poml",
+        "product_id": "f73yofl2bhm",
+        "size": "28",
+        "price": 38000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "amauw108vsj",
+        "product_id": "f73yofl2bhm",
+        "size": "30",
+        "price": 38000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "6tz6grzqtxi",
+        "product_id": "f73yofl2bhm",
+        "size": "32",
+        "price": 38000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "spcdlzwdk8",
+        "product_id": "f73yofl2bhm",
+        "size": "34",
+        "price": 38000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "dvllsx2fn8e",
+        "product_id": "f73yofl2bhm",
+        "size": "36",
+        "price": 38000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "wbl2i5vu1lo",
+        "product_id": "f73yofl2bhm",
+        "size": "38",
+        "price": 38000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "utch8hcq4x",
+        "product_id": "f73yofl2bhm",
+        "size": "40",
+        "price": 38000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "sznebjx9toq",
+        "product_id": "f73yofl2bhm",
+        "size": "42",
+        "price": 38000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "4op9mxtrxmg",
+        "product_id": "f73yofl2bhm",
+        "size": "44",
+        "price": 38000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      }
+    ]
+  },
+  {
+    "id": "h11vkb0hww",
+    "name": "Socks",
+    "slug": "socks-david-4",
+    "description": "Socks for David. Boys, Socks, Summer",
+    "category_id": "hn1xp7l7fv4",
+    "gender": "boys",
+    "price": 5000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.005Z",
+    "images": [
+      {
+        "id": "8ga865aati",
+        "product_id": "h11vkb0hww",
+        "url": "/images/products/placeholder-socks.jpg",
+        "alt_text": "Socks",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "pmq0wjeiye",
+        "product_id": "h11vkb0hww",
+        "size": "One Size",
+        "price": 5000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      }
+    ]
+  },
+  {
+    "id": "qhrtzzjvu3",
+    "name": "Shirt",
+    "slug": "shirt-jjps-5",
+    "description": "Shirt for JJPS. Boys, Shirt, Summer",
+    "category_id": "1bzn9uoj5vr",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.005Z",
+    "images": [
+      {
+        "id": "34onv9k85n9",
+        "product_id": "qhrtzzjvu3",
+        "url": "/images/products/placeholder-shirt.jpg",
+        "alt_text": "Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "m2tafac7sv",
+        "product_id": "qhrtzzjvu3",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "tc69tu3kkn",
+        "product_id": "qhrtzzjvu3",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "1pgwwisep4th",
+        "product_id": "qhrtzzjvu3",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "bnwni1pat8l",
+        "product_id": "qhrtzzjvu3",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "spisudcgeur",
+        "product_id": "qhrtzzjvu3",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "5ty51433d2a",
+        "product_id": "qhrtzzjvu3",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "r1vikj3lxxq",
+        "product_id": "qhrtzzjvu3",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "tlb6n2z5bif",
+        "product_id": "qhrtzzjvu3",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "bowqi7r0su8",
+        "product_id": "qhrtzzjvu3",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "6vzufvt62k7",
+        "product_id": "qhrtzzjvu3",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "vw13eqqfwdd",
+        "product_id": "qhrtzzjvu3",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      }
+    ]
+  },
+  {
+    "id": "2ykmk1rwktm",
+    "name": "Pant",
+    "slug": "pant-jjps-6",
+    "description": "Pant for JJPS. Boys, Pant, Summer",
+    "category_id": "1bzn9uoj5vr",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.005Z",
+    "images": [
+      {
+        "id": "eunugut94dt",
+        "product_id": "2ykmk1rwktm",
+        "url": "/images/products/placeholder-pant.jpg",
+        "alt_text": "Pant",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "k7j9khco8kr",
+        "product_id": "2ykmk1rwktm",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "t4rfvemyzic",
+        "product_id": "2ykmk1rwktm",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "yp9dme4uo5s",
+        "product_id": "2ykmk1rwktm",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "9yv0uvl8xgr",
+        "product_id": "2ykmk1rwktm",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "xz5c5tu8e1",
+        "product_id": "2ykmk1rwktm",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "cogdljqntuv",
+        "product_id": "2ykmk1rwktm",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "pt2f9kwk7r",
+        "product_id": "2ykmk1rwktm",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "ttv1c8gx43",
+        "product_id": "2ykmk1rwktm",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "la11sba8y4",
+        "product_id": "2ykmk1rwktm",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "ydt9yobzajm",
+        "product_id": "2ykmk1rwktm",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "72g0e54ij3t",
+        "product_id": "2ykmk1rwktm",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      }
+    ]
+  },
+  {
+    "id": "xmab91qohtn",
+    "name": "T-Shirt",
+    "slug": "t-shirt-jjps-7",
+    "description": "T-Shirt for JJPS. Boys, Summer, T-Shirt",
+    "category_id": "1bzn9uoj5vr",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.005Z",
+    "images": [
+      {
+        "id": "ilkac6c9j3",
+        "product_id": "xmab91qohtn",
+        "url": "/images/products/placeholder-t-shirt.jpg",
+        "alt_text": "T-Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "u4enyzvth5",
+        "product_id": "xmab91qohtn",
+        "size": "22 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "gghzj6uflvd",
+        "product_id": "xmab91qohtn",
+        "size": "24 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "9t3xbv6f0vo",
+        "product_id": "xmab91qohtn",
+        "size": "26 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "6brn5nao27k",
+        "product_id": "xmab91qohtn",
+        "size": "28 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "hxptoiu1q9e",
+        "product_id": "xmab91qohtn",
+        "size": "30 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "t4mt50yhx1c",
+        "product_id": "xmab91qohtn",
+        "size": "32 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "wetb16vyvl",
+        "product_id": "xmab91qohtn",
+        "size": "34 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "hnmvsjns9wl",
+        "product_id": "xmab91qohtn",
+        "size": "36 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "af1dkg5p656",
+        "product_id": "xmab91qohtn",
+        "size": "38 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "ar08e84kqh",
+        "product_id": "xmab91qohtn",
+        "size": "40 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "6bw95m0tct",
+        "product_id": "xmab91qohtn",
+        "size": "42 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "s0shb3soms",
+        "product_id": "xmab91qohtn",
+        "size": "22 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "1a5bfl8bgqej",
+        "product_id": "xmab91qohtn",
+        "size": "24 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "mypfpek5ju8",
+        "product_id": "xmab91qohtn",
+        "size": "26 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "esrai0f2sog",
+        "product_id": "xmab91qohtn",
+        "size": "28 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "0nmnwggpr7yh",
+        "product_id": "xmab91qohtn",
+        "size": "30 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "9d0anfzhw4a",
+        "product_id": "xmab91qohtn",
+        "size": "32 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "i9gc6ay1fwk",
+        "product_id": "xmab91qohtn",
+        "size": "34 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "8faiq3r7cjs",
+        "product_id": "xmab91qohtn",
+        "size": "36 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "ioyxqyx1nem",
+        "product_id": "xmab91qohtn",
+        "size": "38 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "fbb7u00qjn5",
+        "product_id": "xmab91qohtn",
+        "size": "40 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "bc6wt5v04fh",
+        "product_id": "xmab91qohtn",
+        "size": "42 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "fpsg3hijom",
+        "product_id": "xmab91qohtn",
+        "size": "22 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "v45scibu4dd",
+        "product_id": "xmab91qohtn",
+        "size": "24 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "g4pmlcs9yso",
+        "product_id": "xmab91qohtn",
+        "size": "26 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "fyi1jdyyaa5",
+        "product_id": "xmab91qohtn",
+        "size": "28 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "yz9jwevcgm",
+        "product_id": "xmab91qohtn",
+        "size": "30 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "a2ochu6gqvf",
+        "product_id": "xmab91qohtn",
+        "size": "32 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "0xppfby7jehh",
+        "product_id": "xmab91qohtn",
+        "size": "34 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "ca0gx4vnjp7",
+        "product_id": "xmab91qohtn",
+        "size": "36 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "40krlbyh9bv",
+        "product_id": "xmab91qohtn",
+        "size": "38 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "90sv6j2annv",
+        "product_id": "xmab91qohtn",
+        "size": "40 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "1pw8c4xglqx",
+        "product_id": "xmab91qohtn",
+        "size": "42 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "imhj85k9hmm",
+        "product_id": "xmab91qohtn",
+        "size": "22 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "v3ufkr6us5",
+        "product_id": "xmab91qohtn",
+        "size": "24 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "ik6n9wtcblr",
+        "product_id": "xmab91qohtn",
+        "size": "26 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "t1ev80fsclm",
+        "product_id": "xmab91qohtn",
+        "size": "28 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "j2wpmrjewzb",
+        "product_id": "xmab91qohtn",
+        "size": "30 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "6hsqmon2erq",
+        "product_id": "xmab91qohtn",
+        "size": "32 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "vbe9u9dwo9k",
+        "product_id": "xmab91qohtn",
+        "size": "34 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "4hyx55kv0ze",
+        "product_id": "xmab91qohtn",
+        "size": "36 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "w1lgvdj8vnj",
+        "product_id": "xmab91qohtn",
+        "size": "38 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.005Z"
+      },
+      {
+        "id": "9tfeylv8yv",
+        "product_id": "xmab91qohtn",
+        "size": "40 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "u7o3d5azcf",
+        "product_id": "xmab91qohtn",
+        "size": "42 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "by94bgsiz4l",
+    "name": "Lower",
+    "slug": "lower-jjps-8",
+    "description": "Lower for JJPS. Boys, Lower, Summer",
+    "category_id": "1bzn9uoj5vr",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "btjyvolklo",
+        "product_id": "by94bgsiz4l",
+        "url": "/images/products/placeholder-lower.jpg",
+        "alt_text": "Lower",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "1cey50wvsoa",
+        "product_id": "by94bgsiz4l",
+        "size": "22 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "oypan6zhn8",
+        "product_id": "by94bgsiz4l",
+        "size": "24 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "mzzwbtsam18",
+        "product_id": "by94bgsiz4l",
+        "size": "26 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "43ztc8udkjh",
+        "product_id": "by94bgsiz4l",
+        "size": "28 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "fg8j16206n",
+        "product_id": "by94bgsiz4l",
+        "size": "30 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "3k6qggn2e79",
+        "product_id": "by94bgsiz4l",
+        "size": "32 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "srm7qg7lkhf",
+        "product_id": "by94bgsiz4l",
+        "size": "34 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "d17fcxy54h9",
+        "product_id": "by94bgsiz4l",
+        "size": "36 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "lkoupu3477g",
+        "product_id": "by94bgsiz4l",
+        "size": "38 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "4648lm5cc5v",
+        "product_id": "by94bgsiz4l",
+        "size": "40 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "7qsguukoq9t",
+        "product_id": "by94bgsiz4l",
+        "size": "42 - Blue",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "fek8h3d4h3",
+        "product_id": "by94bgsiz4l",
+        "size": "22 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "iju0k7n5a99",
+        "product_id": "by94bgsiz4l",
+        "size": "24 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "ygd1dixdkam",
+        "product_id": "by94bgsiz4l",
+        "size": "26 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "41lu9fxtv44",
+        "product_id": "by94bgsiz4l",
+        "size": "28 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "ka38osgf9cc",
+        "product_id": "by94bgsiz4l",
+        "size": "30 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "zni3mczwkpf",
+        "product_id": "by94bgsiz4l",
+        "size": "32 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "5vpbi826mnq",
+        "product_id": "by94bgsiz4l",
+        "size": "34 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "530pb9b0zb4",
+        "product_id": "by94bgsiz4l",
+        "size": "36 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "wvzz2adih2k",
+        "product_id": "by94bgsiz4l",
+        "size": "38 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "t1qt73ua6dg",
+        "product_id": "by94bgsiz4l",
+        "size": "40 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "0ythx7tygrh",
+        "product_id": "by94bgsiz4l",
+        "size": "42 - Green",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "xr234mz1krg",
+        "product_id": "by94bgsiz4l",
+        "size": "22 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "g0dqthsulkr",
+        "product_id": "by94bgsiz4l",
+        "size": "24 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "3fjopmtaaww",
+        "product_id": "by94bgsiz4l",
+        "size": "26 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "ti2tm43on6i",
+        "product_id": "by94bgsiz4l",
+        "size": "28 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "1b1siw18dyj",
+        "product_id": "by94bgsiz4l",
+        "size": "30 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "wsc8dhzc9wb",
+        "product_id": "by94bgsiz4l",
+        "size": "32 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "tcej7ok013h",
+        "product_id": "by94bgsiz4l",
+        "size": "34 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "drut2py2pt",
+        "product_id": "by94bgsiz4l",
+        "size": "36 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "jsfsu9cv3x",
+        "product_id": "by94bgsiz4l",
+        "size": "38 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "s87k93kzucc",
+        "product_id": "by94bgsiz4l",
+        "size": "40 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "vggev4iqpbq",
+        "product_id": "by94bgsiz4l",
+        "size": "42 - Red",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "kctj391h3c",
+        "product_id": "by94bgsiz4l",
+        "size": "22 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "i5nvu89iclh",
+        "product_id": "by94bgsiz4l",
+        "size": "24 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "fnlepyprug5",
+        "product_id": "by94bgsiz4l",
+        "size": "26 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "v0ps6bf4re",
+        "product_id": "by94bgsiz4l",
+        "size": "28 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "5pabe7b5x",
+        "product_id": "by94bgsiz4l",
+        "size": "30 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "cnotfhfi5wp",
+        "product_id": "by94bgsiz4l",
+        "size": "32 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "qrfa0w3pthi",
+        "product_id": "by94bgsiz4l",
+        "size": "34 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "uzai3i6ery",
+        "product_id": "by94bgsiz4l",
+        "size": "36 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "jz0bdoelnka",
+        "product_id": "by94bgsiz4l",
+        "size": "38 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "5am9q5bsutj",
+        "product_id": "by94bgsiz4l",
+        "size": "40 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "d6rhd8gt5o4",
+        "product_id": "by94bgsiz4l",
+        "size": "42 - Yellow",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "q37d76yega",
+    "name": "Shirt",
+    "slug": "shirt-kv-9",
+    "description": "Shirt for KV. Boys, Class VI to XII, Shirt, Summer",
+    "category_id": "nmh2q7klu9r",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "jgdhodb6grc",
+        "product_id": "q37d76yega",
+        "url": "/images/products/placeholder-shirt.jpg",
+        "alt_text": "Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "g34mgbn8pb",
+        "product_id": "q37d76yega",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "ykte15cdotp",
+        "product_id": "q37d76yega",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "yub0qqek80f",
+        "product_id": "q37d76yega",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "7dbbgk5lshk",
+        "product_id": "q37d76yega",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "gglzktzz92l",
+        "product_id": "q37d76yega",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "tun4ya56jn",
+        "product_id": "q37d76yega",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "l8hsbpcufy",
+        "product_id": "q37d76yega",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "tfb8qoqhor",
+        "product_id": "q37d76yega",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "paqf1coc5g8",
+        "product_id": "q37d76yega",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "2xll1swyfxj",
+        "product_id": "q37d76yega",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "0vb1vz335ho",
+        "product_id": "q37d76yega",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "cw263jx83rt",
+    "name": "Pant",
+    "slug": "pant-kv-10",
+    "description": "Pant for KV. Boys, Pant, Summer",
+    "category_id": "nmh2q7klu9r",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "7n7t3g0ucb",
+        "product_id": "cw263jx83rt",
+        "url": "/images/products/placeholder-pant.jpg",
+        "alt_text": "Pant",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "1ok5oxid3lu",
+        "product_id": "cw263jx83rt",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "kzs8aziikw",
+        "product_id": "cw263jx83rt",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "2jrughag27h",
+        "product_id": "cw263jx83rt",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "1h9eyqduwvm",
+        "product_id": "cw263jx83rt",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "dysnnbw7op",
+        "product_id": "cw263jx83rt",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "3h7fpfrmhis",
+        "product_id": "cw263jx83rt",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "19pzblwmo7f",
+        "product_id": "cw263jx83rt",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "bsjeeujz2c",
+        "product_id": "cw263jx83rt",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "6oxz33dsqc5",
+        "product_id": "cw263jx83rt",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "6tugtjereum",
+        "product_id": "cw263jx83rt",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "0d66vkic8t4",
+        "product_id": "cw263jx83rt",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "uz9lecbwaj",
+    "name": "Pant",
+    "slug": "pant-nav-jeevan-11",
+    "description": "Pant for Nav Jeevan. Boys, Pant, Summer",
+    "category_id": "f0b2xptz1wl",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "t2twhby23yk",
+        "product_id": "uz9lecbwaj",
+        "url": "/images/products/placeholder-pant.jpg",
+        "alt_text": "Pant",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "qv0zzxyth8",
+        "product_id": "uz9lecbwaj",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "xjlf348w8ck",
+        "product_id": "uz9lecbwaj",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "12n8r8rsqcn",
+        "product_id": "uz9lecbwaj",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "od249wfbfhr",
+        "product_id": "uz9lecbwaj",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "gprrzycbs9m",
+        "product_id": "uz9lecbwaj",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "toak0ncs0lg",
+        "product_id": "uz9lecbwaj",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "j7pjs2z8k8q",
+        "product_id": "uz9lecbwaj",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "4qwcpb7lk94",
+        "product_id": "uz9lecbwaj",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "ewa28u2aeit",
+        "product_id": "uz9lecbwaj",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "q35b60xnx1",
+        "product_id": "uz9lecbwaj",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "16qvgakjj8u",
+        "product_id": "uz9lecbwaj",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "cbzjwhq23kg",
+    "name": "Shirt",
+    "slug": "shirt-nav-jeevan-12",
+    "description": "Shirt for Nav Jeevan. Boys, Shirt, Summer",
+    "category_id": "f0b2xptz1wl",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "y8pknyag54",
+        "product_id": "cbzjwhq23kg",
+        "url": "/images/products/placeholder-shirt.jpg",
+        "alt_text": "Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "c6bp2offo6o",
+        "product_id": "cbzjwhq23kg",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "7nto0u0lxyq",
+        "product_id": "cbzjwhq23kg",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "282kbust27i",
+        "product_id": "cbzjwhq23kg",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "sxdyezyr60n",
+        "product_id": "cbzjwhq23kg",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "tyicpfw165",
+        "product_id": "cbzjwhq23kg",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "01fkwwdgk9yx",
+        "product_id": "cbzjwhq23kg",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "xw2nuf7hxn",
+        "product_id": "cbzjwhq23kg",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "cyucxm1g4g4",
+        "product_id": "cbzjwhq23kg",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "izoqzxyfzoh",
+        "product_id": "cbzjwhq23kg",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "okr8d63p1z9",
+        "product_id": "cbzjwhq23kg",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "quo64net45f",
+        "product_id": "cbzjwhq23kg",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "lgihkkmqpxn",
+    "name": "Shirt",
+    "slug": "shirt-nd-13",
+    "description": "Shirt for ND. Boys, Shirt, Summer",
+    "category_id": "qd4pgp1a8w",
+    "gender": "boys",
+    "price": 30000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "9jayl5me2p",
+        "product_id": "lgihkkmqpxn",
+        "url": "/images/products/placeholder-shirt.jpg",
+        "alt_text": "Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "eb79huy8xrb",
+        "product_id": "lgihkkmqpxn",
+        "size": "24",
+        "price": 30000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "lpe328p4pi8",
+        "product_id": "lgihkkmqpxn",
+        "size": "26",
+        "price": 30000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "3duevuvakcg",
+        "product_id": "lgihkkmqpxn",
+        "size": "28",
+        "price": 30000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "l93u70heu0s",
+        "product_id": "lgihkkmqpxn",
+        "size": "30",
+        "price": 30000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "ot0bl3glavh",
+        "product_id": "lgihkkmqpxn",
+        "size": "32",
+        "price": 30000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "y7erybwhfaq",
+        "product_id": "lgihkkmqpxn",
+        "size": "34",
+        "price": 30000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "w47rlqtqn2p",
+        "product_id": "lgihkkmqpxn",
+        "size": "36",
+        "price": 30000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "hub65yxaqkw",
+        "product_id": "lgihkkmqpxn",
+        "size": "38",
+        "price": 30000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "h5aqdjb46u",
+    "name": "Pant",
+    "slug": "pant-nd-14",
+    "description": "Pant for ND. Boys, Pant, Summer",
+    "category_id": "qd4pgp1a8w",
+    "gender": "boys",
+    "price": 36000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "ub6ojyg28v",
+        "product_id": "h5aqdjb46u",
+        "url": "/images/products/placeholder-pant.jpg",
+        "alt_text": "Pant",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "zxmohn9w7p",
+        "product_id": "h5aqdjb46u",
+        "size": "28",
+        "price": 36000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "9xdoqrlyn1f",
+        "product_id": "h5aqdjb46u",
+        "size": "30",
+        "price": 36000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "1cm3zy9h8fs",
+        "product_id": "h5aqdjb46u",
+        "size": "32",
+        "price": 36000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "dho6bzormld",
+        "product_id": "h5aqdjb46u",
+        "size": "34",
+        "price": 36000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "sxxqcm8qsxs",
+        "product_id": "h5aqdjb46u",
+        "size": "36",
+        "price": 36000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "uatqquhg1md",
+        "product_id": "h5aqdjb46u",
+        "size": "38",
+        "price": 36000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "oml2hlb22ep",
+        "product_id": "h5aqdjb46u",
+        "size": "40",
+        "price": 36000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "5z1y7rac10d",
+    "name": "Shirt",
+    "slug": "shirt-st-mary-15",
+    "description": "Shirt for ST Mary. Boys, Shirt, Summer",
+    "category_id": "paf9gw3e5l",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "zuf7ul5zrf",
+        "product_id": "5z1y7rac10d",
+        "url": "/images/products/placeholder-shirt.jpg",
+        "alt_text": "Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "4ow01ilpjjs",
+        "product_id": "5z1y7rac10d",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "6ham1jb58q9",
+        "product_id": "5z1y7rac10d",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "8akqvnpe6fn",
+        "product_id": "5z1y7rac10d",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "99c7485h57",
+        "product_id": "5z1y7rac10d",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "crks7bzpb9",
+        "product_id": "5z1y7rac10d",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "ijbys0eaoj",
+        "product_id": "5z1y7rac10d",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "6xjkjobm8dc",
+        "product_id": "5z1y7rac10d",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "11u6uo1flyzb",
+        "product_id": "5z1y7rac10d",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "d3e4j4nnt5",
+        "product_id": "5z1y7rac10d",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "zub70gguvfc",
+        "product_id": "5z1y7rac10d",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "0dujyvxc7z2q",
+        "product_id": "5z1y7rac10d",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "v6cs7dfp7r",
+    "name": "Pant",
+    "slug": "pant-st-mary-16",
+    "description": "Pant for ST Mary. Boys, Pant, Summer",
+    "category_id": "paf9gw3e5l",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "031kcp064hbs",
+        "product_id": "v6cs7dfp7r",
+        "url": "/images/products/placeholder-pant.jpg",
+        "alt_text": "Pant",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "9l49jt8busv",
+        "product_id": "v6cs7dfp7r",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "2as642n1s0v",
+        "product_id": "v6cs7dfp7r",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "jvet3uau9z",
+        "product_id": "v6cs7dfp7r",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "gg5iy7q4e0a",
+        "product_id": "v6cs7dfp7r",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "tzx36lwtbqc",
+        "product_id": "v6cs7dfp7r",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "vvnf7euvtyk",
+        "product_id": "v6cs7dfp7r",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "dpbb5q0e96",
+        "product_id": "v6cs7dfp7r",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "vhkbfo2r49l",
+        "product_id": "v6cs7dfp7r",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "8g4012pcnu7",
+        "product_id": "v6cs7dfp7r",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "i4qilmvv7fp",
+        "product_id": "v6cs7dfp7r",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "ylu7jbxr7kj",
+        "product_id": "v6cs7dfp7r",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "yo0u805y0zm",
+    "name": "White Shirt",
+    "slug": "white-shirt-common-17",
+    "description": "White Shirt for Common. Boys, Shirt, Summer",
+    "category_id": "a9ae1sqjr9m",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "u31cqk92sq",
+        "product_id": "yo0u805y0zm",
+        "url": "/images/products/placeholder-white-shirt.jpg",
+        "alt_text": "White Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "cop0hxsv384",
+        "product_id": "yo0u805y0zm",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "oagtflt8vks",
+        "product_id": "yo0u805y0zm",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "vtcj7chgfcf",
+        "product_id": "yo0u805y0zm",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "dbbcfvsxwkr",
+        "product_id": "yo0u805y0zm",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "l53jyb598nn",
+        "product_id": "yo0u805y0zm",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "ds1gt4b46f5",
+        "product_id": "yo0u805y0zm",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "s8p8zo5u8x",
+        "product_id": "yo0u805y0zm",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "xo285ripx0f",
+        "product_id": "yo0u805y0zm",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "h59pr5xwb1",
+        "product_id": "yo0u805y0zm",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "9mjyj72xb0b",
+        "product_id": "yo0u805y0zm",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "pm9felks1h9",
+        "product_id": "yo0u805y0zm",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "7zqoo59a27",
+    "name": "Blue Pant",
+    "slug": "blue-pant-common-18",
+    "description": "Blue Pant for Common. Boys, Pant, Summer, Winter",
+    "category_id": "a9ae1sqjr9m",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "buyuzqeyvs",
+        "product_id": "7zqoo59a27",
+        "url": "/images/products/placeholder-blue-pant.jpg",
+        "alt_text": "Blue Pant",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "tf5nuhzbhc",
+        "product_id": "7zqoo59a27",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "ebtqb1gvyq",
+        "product_id": "7zqoo59a27",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "2qykl0pg98q",
+        "product_id": "7zqoo59a27",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "v9rvb2amunl",
+        "product_id": "7zqoo59a27",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "vit30lldfi",
+        "product_id": "7zqoo59a27",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "7ucnq8mespx",
+        "product_id": "7zqoo59a27",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "u70sqcy4sh",
+        "product_id": "7zqoo59a27",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "sfj9rirj90j",
+        "product_id": "7zqoo59a27",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "j4bj9bijbxq",
+        "product_id": "7zqoo59a27",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "hk7wyzzw6tb",
+        "product_id": "7zqoo59a27",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "b7rycpbatn",
+        "product_id": "7zqoo59a27",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "lnyozv8h8m",
+    "name": "David Girls I - V",
+    "slug": "david-girls-i-v-david-19",
+    "description": "David Girls I - V for David. Girls, Summer",
+    "category_id": "hn1xp7l7fv4",
+    "gender": "girls",
+    "price": 28000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "72hbmnd515p",
+        "product_id": "lnyozv8h8m",
+        "url": "/images/products/placeholder-david-girls-i-v.jpg",
+        "alt_text": "David Girls I - V",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "74rcb63facn",
+        "product_id": "lnyozv8h8m",
+        "size": "22",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "w04ryp3ms4a",
+        "product_id": "lnyozv8h8m",
+        "size": "22/24",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "ienfa3vh3ud",
+        "product_id": "lnyozv8h8m",
+        "size": "24",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "412kcpm0vn3",
+        "product_id": "lnyozv8h8m",
+        "size": "24/24",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "rb28n495e",
+        "product_id": "lnyozv8h8m",
+        "size": "26",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "7oin6b9hds5",
+        "product_id": "lnyozv8h8m",
+        "size": "26/24",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "kct0n3vqoi",
+        "product_id": "lnyozv8h8m",
+        "size": "28",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "80qvzsa0rgv",
+        "product_id": "lnyozv8h8m",
+        "size": "28/24",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "xjxhx6y77im",
+        "product_id": "lnyozv8h8m",
+        "size": "30",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "t7lbreqafj8",
+        "product_id": "lnyozv8h8m",
+        "size": "30/24",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "hejrprjsuyv",
+        "product_id": "lnyozv8h8m",
+        "size": "32",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "70j217o0r5v",
+        "product_id": "lnyozv8h8m",
+        "size": "32/24",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "xuq0l56t4jj",
+        "product_id": "lnyozv8h8m",
+        "size": "34",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "vx3rpg28q9g",
+        "product_id": "lnyozv8h8m",
+        "size": "34/24",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "lvc5s4zwcoc",
+        "product_id": "lnyozv8h8m",
+        "size": "36",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "m7adx61wzh",
+        "product_id": "lnyozv8h8m",
+        "size": "36/34",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "zvzzjpdho5q",
+        "product_id": "lnyozv8h8m",
+        "size": "38",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "dpghpd5x1d",
+        "product_id": "lnyozv8h8m",
+        "size": "40",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "er50rvkq0oo",
+        "product_id": "lnyozv8h8m",
+        "size": "42",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "e93m9hkaf4l",
+    "name": "David Girls VI - VIII",
+    "slug": "david-girls-vi-viii-david-21",
+    "description": "David Girls VI - VIII for David. Girls, Summer",
+    "category_id": "hn1xp7l7fv4",
+    "gender": "girls",
+    "price": 35000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "69bhu0mg2ba",
+        "product_id": "e93m9hkaf4l",
+        "url": "/images/products/placeholder-david-girls-vi-viii.jpg",
+        "alt_text": "David Girls VI - VIII",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "192p5uedowx",
+        "product_id": "e93m9hkaf4l",
+        "size": "22",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "p985m63u51",
+        "product_id": "e93m9hkaf4l",
+        "size": "22/24",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "ermgurg4c7",
+        "product_id": "e93m9hkaf4l",
+        "size": "24",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "4azl3r3ufg5",
+        "product_id": "e93m9hkaf4l",
+        "size": "24/24",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "x48u26zp27",
+        "product_id": "e93m9hkaf4l",
+        "size": "26",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "yllkxhzn2zm",
+        "product_id": "e93m9hkaf4l",
+        "size": "26/24",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "vzcr5zo18ba",
+        "product_id": "e93m9hkaf4l",
+        "size": "28",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "n7m9s9t6htg",
+        "product_id": "e93m9hkaf4l",
+        "size": "28/24",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "i28jfaq48vs",
+        "product_id": "e93m9hkaf4l",
+        "size": "30",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "fw9n5zde9i9",
+        "product_id": "e93m9hkaf4l",
+        "size": "30/24",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "tljer8180x",
+        "product_id": "e93m9hkaf4l",
+        "size": "32",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "l7slauwyiyo",
+        "product_id": "e93m9hkaf4l",
+        "size": "32/24",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "ridkd85wig",
+        "product_id": "e93m9hkaf4l",
+        "size": "34",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "nrgx29dgmz",
+        "product_id": "e93m9hkaf4l",
+        "size": "34/24",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "60f2soxzby",
+        "product_id": "e93m9hkaf4l",
+        "size": "36",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "k48jl81kd2",
+        "product_id": "e93m9hkaf4l",
+        "size": "36/34",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "lfw91d964ks",
+        "product_id": "e93m9hkaf4l",
+        "size": "38",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "ezrl38pm0rq",
+        "product_id": "e93m9hkaf4l",
+        "size": "40",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "4sg7mzwh5e",
+        "product_id": "e93m9hkaf4l",
+        "size": "42",
+        "price": 35000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "szhq93x00ti",
+    "name": "David Girls IX - XII",
+    "slug": "david-girls-ix-xii-david-22",
+    "description": "David Girls IX - XII for David. Girls, Summer",
+    "category_id": "hn1xp7l7fv4",
+    "gender": "girls",
+    "price": 21000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "bf4fky8ov3o",
+        "product_id": "szhq93x00ti",
+        "url": "/images/products/placeholder-david-girls-ix-xii.jpg",
+        "alt_text": "David Girls IX - XII",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "vrhko6hnhda",
+        "product_id": "szhq93x00ti",
+        "size": "22",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "zwzmk97wbr",
+        "product_id": "szhq93x00ti",
+        "size": "22/24",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "9dfqwwcjzkp",
+        "product_id": "szhq93x00ti",
+        "size": "24",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "q310lvwnlee",
+        "product_id": "szhq93x00ti",
+        "size": "24/24",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "uw0naki5n6",
+        "product_id": "szhq93x00ti",
+        "size": "26",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "iqa9lpge7y9",
+        "product_id": "szhq93x00ti",
+        "size": "26/24",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "hp3ywqziv2",
+        "product_id": "szhq93x00ti",
+        "size": "28",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "7gufc80fo6q",
+        "product_id": "szhq93x00ti",
+        "size": "28/24",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "89utvh1qn7w",
+        "product_id": "szhq93x00ti",
+        "size": "30",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "icn3sfb692q",
+        "product_id": "szhq93x00ti",
+        "size": "30/24",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "2tfh74gxrvo",
+        "product_id": "szhq93x00ti",
+        "size": "32",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "l8xqqc9doxp",
+        "product_id": "szhq93x00ti",
+        "size": "32/24",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "in3ysbifj7",
+        "product_id": "szhq93x00ti",
+        "size": "34",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "0pm2213p8b7",
+        "product_id": "szhq93x00ti",
+        "size": "34/24",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "48euid7zg8p",
+        "product_id": "szhq93x00ti",
+        "size": "36",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "hjtync8pr5m",
+        "product_id": "szhq93x00ti",
+        "size": "36/34",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "o4ceualopgb",
+        "product_id": "szhq93x00ti",
+        "size": "38",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "mftmh3223yp",
+        "product_id": "szhq93x00ti",
+        "size": "40",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "e5bjcn35wf",
+        "product_id": "szhq93x00ti",
+        "size": "42",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      },
+      {
+        "id": "471zdqvy15v",
+        "product_id": "szhq93x00ti",
+        "size": "44",
+        "price": 21000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.006Z"
+      }
+    ]
+  },
+  {
+    "id": "hdt37dbfqw",
+    "name": "T-Shirt",
+    "slug": "t-shirt-kv-23",
+    "description": "T-Shirt for KV. Boys, Summer, T-Shirt",
+    "category_id": "nmh2q7klu9r",
+    "gender": "boys",
+    "price": 0,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.006Z",
+    "images": [
+      {
+        "id": "5hqy0fd8ehn",
+        "product_id": "hdt37dbfqw",
+        "url": "/images/products/placeholder-t-shirt.jpg",
+        "alt_text": "T-Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "s9kn6z94c2",
+        "product_id": "hdt37dbfqw",
+        "size": "22 - Blue",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "88syycuz9lw",
+        "product_id": "hdt37dbfqw",
+        "size": "24 - Blue",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "b1vpqpauge",
+        "product_id": "hdt37dbfqw",
+        "size": "26 - Blue",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "6ujg10nkkep",
+        "product_id": "hdt37dbfqw",
+        "size": "28 - Blue",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "c5yit47wkf",
+        "product_id": "hdt37dbfqw",
+        "size": "30 - Blue",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "nirp3iyau9j",
+        "product_id": "hdt37dbfqw",
+        "size": "32 - Blue",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "rywuh4ai69p",
+        "product_id": "hdt37dbfqw",
+        "size": "34 - Blue",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "kn33dohbj2",
+        "product_id": "hdt37dbfqw",
+        "size": "36 - Blue",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "oaxap3h2v9n",
+        "product_id": "hdt37dbfqw",
+        "size": "38 - Blue",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "4840rra5fzk",
+        "product_id": "hdt37dbfqw",
+        "size": "40 - Blue",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "ix13q0otjr",
+        "product_id": "hdt37dbfqw",
+        "size": "42 - Blue",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "012war3i82hs",
+        "product_id": "hdt37dbfqw",
+        "size": "22 - Green",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "dnhm7dkr15d",
+        "product_id": "hdt37dbfqw",
+        "size": "24 - Green",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "momiu2g4wqa",
+        "product_id": "hdt37dbfqw",
+        "size": "26 - Green",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "344jv6az47m",
+        "product_id": "hdt37dbfqw",
+        "size": "28 - Green",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "2vq5jpf0ujv",
+        "product_id": "hdt37dbfqw",
+        "size": "30 - Green",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "qgucqvpqikf",
+        "product_id": "hdt37dbfqw",
+        "size": "32 - Green",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "wn32peyvr9",
+        "product_id": "hdt37dbfqw",
+        "size": "34 - Green",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "g9dda95cu4c",
+        "product_id": "hdt37dbfqw",
+        "size": "36 - Green",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "5phtbfn4g6v",
+        "product_id": "hdt37dbfqw",
+        "size": "38 - Green",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "w0ja1dfa009",
+        "product_id": "hdt37dbfqw",
+        "size": "40 - Green",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "02qjk67wzb4l",
+        "product_id": "hdt37dbfqw",
+        "size": "42 - Green",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "xc4k9qgxti",
+        "product_id": "hdt37dbfqw",
+        "size": "22 - Red",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "vwv8y0rronq",
+        "product_id": "hdt37dbfqw",
+        "size": "24 - Red",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "6enusjsgl8c",
+        "product_id": "hdt37dbfqw",
+        "size": "26 - Red",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "mbtlmt7gmqp",
+        "product_id": "hdt37dbfqw",
+        "size": "28 - Red",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "pqwcvlfv5fq",
+        "product_id": "hdt37dbfqw",
+        "size": "30 - Red",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "iao5by9o7rb",
+        "product_id": "hdt37dbfqw",
+        "size": "32 - Red",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "b1wwqlp11zw",
+        "product_id": "hdt37dbfqw",
+        "size": "34 - Red",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "j0lo5t1vb9b",
+        "product_id": "hdt37dbfqw",
+        "size": "36 - Red",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "m3sqpghpocm",
+        "product_id": "hdt37dbfqw",
+        "size": "38 - Red",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "0394rysw2jye",
+        "product_id": "hdt37dbfqw",
+        "size": "40 - Red",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "ee9wrvtb5i",
+        "product_id": "hdt37dbfqw",
+        "size": "42 - Red",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "6ha2g54ks3o",
+        "product_id": "hdt37dbfqw",
+        "size": "22 - Yellow",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "pauzfdzo46",
+        "product_id": "hdt37dbfqw",
+        "size": "24 - Yellow",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "7t8htnmf6zi",
+        "product_id": "hdt37dbfqw",
+        "size": "26 - Yellow",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "qm92dfniw1",
+        "product_id": "hdt37dbfqw",
+        "size": "28 - Yellow",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "brtciuk7qyl",
+        "product_id": "hdt37dbfqw",
+        "size": "30 - Yellow",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "yu57u7cqnf",
+        "product_id": "hdt37dbfqw",
+        "size": "32 - Yellow",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "mytas6v7w1",
+        "product_id": "hdt37dbfqw",
+        "size": "34 - Yellow",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "h31ov7x7dgl",
+        "product_id": "hdt37dbfqw",
+        "size": "36 - Yellow",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "tpfxub6g0bg",
+        "product_id": "hdt37dbfqw",
+        "size": "38 - Yellow",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "k7ak4uuhlm",
+        "product_id": "hdt37dbfqw",
+        "size": "40 - Yellow",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "ds2h5yxay8g",
+        "product_id": "hdt37dbfqw",
+        "size": "42 - Yellow",
+        "price": 0,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      }
+    ]
+  },
+  {
+    "id": "vra83nb4iwa",
+    "name": "Nikkar",
+    "slug": "nikkar-david-24",
+    "description": "Nikkar for David. Boys, Summer",
+    "category_id": "hn1xp7l7fv4",
+    "gender": "boys",
+    "price": 34000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.007Z",
+    "images": [
+      {
+        "id": "0yaoflorcved",
+        "product_id": "vra83nb4iwa",
+        "url": "/images/products/placeholder-nikkar.jpg",
+        "alt_text": "Nikkar",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "23bzvfm8que",
+        "product_id": "vra83nb4iwa",
+        "size": "12",
+        "price": 34000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "9sd4smb7vtg",
+        "product_id": "vra83nb4iwa",
+        "size": "13",
+        "price": 34000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "c3tmoel82v",
+        "product_id": "vra83nb4iwa",
+        "size": "14",
+        "price": 34000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "vo7d9bvmoem",
+        "product_id": "vra83nb4iwa",
+        "size": "15",
+        "price": 34000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "lg5s4jol05r",
+        "product_id": "vra83nb4iwa",
+        "size": "16",
+        "price": 34000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "p5rycw3cfwa",
+        "product_id": "vra83nb4iwa",
+        "size": "17",
+        "price": 34000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "7iov3m9nd0p",
+        "product_id": "vra83nb4iwa",
+        "size": "18",
+        "price": 34000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      }
+    ]
+  },
+  {
+    "id": "7dmradg5rl2",
+    "name": "T-Shirt",
+    "slug": "t-shirt-nd-25",
+    "description": "T-Shirt for ND. Boys, Summer, T-Shirt",
+    "category_id": "qd4pgp1a8w",
+    "gender": "boys",
+    "price": 28000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.007Z",
+    "images": [
+      {
+        "id": "m5cpku4n9m",
+        "product_id": "7dmradg5rl2",
+        "url": "/images/products/placeholder-t-shirt.jpg",
+        "alt_text": "T-Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "cl2rcxjc0jl",
+        "product_id": "7dmradg5rl2",
+        "size": "24",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "wmlcn1f52pp",
+        "product_id": "7dmradg5rl2",
+        "size": "26",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "wi9d9pzx8is",
+        "product_id": "7dmradg5rl2",
+        "size": "28",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "rv3x12hppcr",
+        "product_id": "7dmradg5rl2",
+        "size": "30",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "9nn8uck6tgt",
+        "product_id": "7dmradg5rl2",
+        "size": "32",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "e7gzew53o27",
+        "product_id": "7dmradg5rl2",
+        "size": "34",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "r3g50l5lufp",
+        "product_id": "7dmradg5rl2",
+        "size": "36",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "205ce8vn983",
+        "product_id": "7dmradg5rl2",
+        "size": "38",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      }
+    ]
+  },
+  {
+    "id": "pq5ufd8xpvr",
+    "name": "Wollen Pant",
+    "slug": "wollen-pant-nd-26",
+    "description": "Wollen Pant for ND. Boys, Pant, Summer",
+    "category_id": "qd4pgp1a8w",
+    "gender": "boys",
+    "price": 28000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.007Z",
+    "images": [
+      {
+        "id": "h5olsqj7wuw",
+        "product_id": "pq5ufd8xpvr",
+        "url": "/images/products/placeholder-wollen-pant.jpg",
+        "alt_text": "Wollen Pant",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "esl3cin826f",
+        "product_id": "pq5ufd8xpvr",
+        "size": "22",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "0f919jroig57",
+        "product_id": "pq5ufd8xpvr",
+        "size": "24",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "6m4rc6xsvfi",
+        "product_id": "pq5ufd8xpvr",
+        "size": "26",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "ia6ct7gup3",
+        "product_id": "pq5ufd8xpvr",
+        "size": "28",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "o2fpwe93hhr",
+        "product_id": "pq5ufd8xpvr",
+        "size": "30",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "btqytsam847",
+        "product_id": "pq5ufd8xpvr",
+        "size": "32",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "380md9geubg",
+        "product_id": "pq5ufd8xpvr",
+        "size": "34",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "zjhv0vtatlk",
+        "product_id": "pq5ufd8xpvr",
+        "size": "36",
+        "price": 28000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      }
+    ]
+  },
+  {
+    "id": "5o9z4u1htdu",
+    "name": "Shirt",
+    "slug": "shirt-global-nav-jeevan-school-27",
+    "description": "Shirt for Global Nav Jeevan School. Boys, Shirt, Summer",
+    "category_id": "8iwnkjsmtx",
+    "gender": "boys",
+    "price": 41000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.007Z",
+    "images": [
+      {
+        "id": "c825hnicnlj",
+        "product_id": "5o9z4u1htdu",
+        "url": "/images/products/placeholder-shirt.jpg",
+        "alt_text": "Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "3iqzqdh0to5",
+        "product_id": "5o9z4u1htdu",
+        "size": "22",
+        "price": 41000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "du3nyd4e9ng",
+        "product_id": "5o9z4u1htdu",
+        "size": "24",
+        "price": 41000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "gwutzgx0kc",
+        "product_id": "5o9z4u1htdu",
+        "size": "26",
+        "price": 41000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "tsx8ohiwsik",
+        "product_id": "5o9z4u1htdu",
+        "size": "28",
+        "price": 41000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "elty6lfbrpm",
+        "product_id": "5o9z4u1htdu",
+        "size": "30",
+        "price": 41000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "dolmtcz18pr",
+        "product_id": "5o9z4u1htdu",
+        "size": "32",
+        "price": 41000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "czchszsgi4j",
+        "product_id": "5o9z4u1htdu",
+        "size": "34",
+        "price": 41000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "72phq4yif9",
+        "product_id": "5o9z4u1htdu",
+        "size": "36",
+        "price": 41000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "irvlj7m3wpb",
+        "product_id": "5o9z4u1htdu",
+        "size": "38",
+        "price": 41000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "8z9u8scmjhw",
+        "product_id": "5o9z4u1htdu",
+        "size": "40",
+        "price": 41000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "df2ip28bwnb",
+        "product_id": "5o9z4u1htdu",
+        "size": "42",
+        "price": 41000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      }
+    ]
+  },
+  {
+    "id": "mxxu16snt7e",
+    "name": "Pant",
+    "slug": "pant-global-nav-jeevan-school-28",
+    "description": "Pant for Global Nav Jeevan School. Boys, Pant, Summer",
+    "category_id": "8iwnkjsmtx",
+    "gender": "boys",
+    "price": 47000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.007Z",
+    "images": [
+      {
+        "id": "q87zyk9j7cb",
+        "product_id": "mxxu16snt7e",
+        "url": "/images/products/placeholder-pant.jpg",
+        "alt_text": "Pant",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.009Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "cwraaafsp2",
+        "product_id": "mxxu16snt7e",
+        "size": "22",
+        "price": 47000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "kp2rzg2r05r",
+        "product_id": "mxxu16snt7e",
+        "size": "24",
+        "price": 47000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "43bdwj0fcff",
+        "product_id": "mxxu16snt7e",
+        "size": "26",
+        "price": 47000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "he5s2gt99gw",
+        "product_id": "mxxu16snt7e",
+        "size": "28",
+        "price": 47000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "avwkoxs0i5",
+        "product_id": "mxxu16snt7e",
+        "size": "30",
+        "price": 47000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "a1y6k6ovf3m",
+        "product_id": "mxxu16snt7e",
+        "size": "32",
+        "price": 47000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "rfjshilbzig",
+        "product_id": "mxxu16snt7e",
+        "size": "34",
+        "price": 47000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "scmtr0wv47",
+        "product_id": "mxxu16snt7e",
+        "size": "36",
+        "price": 47000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "2xywit2v5fj",
+        "product_id": "mxxu16snt7e",
+        "size": "38",
+        "price": 47000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "mddd3381ib",
+        "product_id": "mxxu16snt7e",
+        "size": "40",
+        "price": 47000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      },
+      {
+        "id": "ybkj61zb6i8",
+        "product_id": "mxxu16snt7e",
+        "size": "42",
+        "price": 47000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.007Z"
+      }
+    ]
+  },
+  {
+    "id": "prkhimmssgc",
+    "name": "Black Pant",
+    "slug": "black-pant-common-29",
+    "description": "Black Pant for Common. Boys, Pant, Summer, Winter",
+    "category_id": "a9ae1sqjr9m",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.009Z",
+    "images": [
+      {
+        "id": "qj5h6ycptji",
+        "product_id": "prkhimmssgc",
+        "url": "/images/products/placeholder-black-pant.jpg",
+        "alt_text": "Black Pant",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "gz5np5tsyc",
+        "product_id": "prkhimmssgc",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.009Z"
+      },
+      {
+        "id": "pwsis64ldjp",
+        "product_id": "prkhimmssgc",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.009Z"
+      },
+      {
+        "id": "gvx9riubpro",
+        "product_id": "prkhimmssgc",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.009Z"
+      },
+      {
+        "id": "9dqfkt2jdrc",
+        "product_id": "prkhimmssgc",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.009Z"
+      },
+      {
+        "id": "aumiojmt8di",
+        "product_id": "prkhimmssgc",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.009Z"
+      },
+      {
+        "id": "nyzslccr23b",
+        "product_id": "prkhimmssgc",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.009Z"
+      },
+      {
+        "id": "fz2siwegkmk",
+        "product_id": "prkhimmssgc",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.009Z"
+      },
+      {
+        "id": "xdthkq5px6",
+        "product_id": "prkhimmssgc",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.009Z"
+      },
+      {
+        "id": "9d5nt0oh8bw",
+        "product_id": "prkhimmssgc",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "oqeqxqltg",
+        "product_id": "prkhimmssgc",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "1hb5i7dnv6e",
+        "product_id": "prkhimmssgc",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      }
+    ]
+  },
+  {
+    "id": "gat1wngmmta",
+    "name": "Blue Shirt",
+    "slug": "blue-shirt-common-30",
+    "description": "Blue Shirt for Common. Boys, Shirt, Summer",
+    "category_id": "a9ae1sqjr9m",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.010Z",
+    "images": [
+      {
+        "id": "4lfjr8whojd",
+        "product_id": "gat1wngmmta",
+        "url": "/images/products/placeholder-blue-shirt.jpg",
+        "alt_text": "Blue Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "l61x6o0fah",
+        "product_id": "gat1wngmmta",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "lrp0ukfhc9d",
+        "product_id": "gat1wngmmta",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "6sguzr7nrj",
+        "product_id": "gat1wngmmta",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "xlvudjfb99c",
+        "product_id": "gat1wngmmta",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "luj55extuf8",
+        "product_id": "gat1wngmmta",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "pmd5sts7yai",
+        "product_id": "gat1wngmmta",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "fww2vsr6msb",
+        "product_id": "gat1wngmmta",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "2bt69yaq501",
+        "product_id": "gat1wngmmta",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "940xb6j5khd",
+        "product_id": "gat1wngmmta",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "7xl2q9qfd6y",
+        "product_id": "gat1wngmmta",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "o3lb5ddcosn",
+        "product_id": "gat1wngmmta",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      }
+    ]
+  },
+  {
+    "id": "0l4qln1t3rxe",
+    "name": "Blue Shirt",
+    "slug": "blue-shirt-common-31",
+    "description": "Blue Shirt for Common. Boys, Shirt, Winter",
+    "category_id": "a9ae1sqjr9m",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.010Z",
+    "images": [
+      {
+        "id": "08zyjcus0j1m",
+        "product_id": "0l4qln1t3rxe",
+        "url": "/images/products/placeholder-blue-shirt.jpg",
+        "alt_text": "Blue Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "k291v9fftyn",
+        "product_id": "0l4qln1t3rxe",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "0qc5lzkod0ch",
+        "product_id": "0l4qln1t3rxe",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "abi0l29ij99",
+        "product_id": "0l4qln1t3rxe",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "s430i0v8hpk",
+        "product_id": "0l4qln1t3rxe",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "awz5rzty2o6",
+        "product_id": "0l4qln1t3rxe",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "a5dz1syaggl",
+        "product_id": "0l4qln1t3rxe",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "1mnf54bidxh",
+        "product_id": "0l4qln1t3rxe",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "ni65nfgkq1",
+        "product_id": "0l4qln1t3rxe",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "6zyyu4axbs4",
+        "product_id": "0l4qln1t3rxe",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "oyjtv96uqv",
+        "product_id": "0l4qln1t3rxe",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "cxnc0t34eb",
+        "product_id": "0l4qln1t3rxe",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      }
+    ]
+  },
+  {
+    "id": "1x9px7czxur",
+    "name": "White Shirt",
+    "slug": "white-shirt-common-32",
+    "description": "White Shirt for Common. Boys, Shirt, Winter",
+    "category_id": "a9ae1sqjr9m",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.010Z",
+    "images": [
+      {
+        "id": "7j9ulobt5z4",
+        "product_id": "1x9px7czxur",
+        "url": "/images/products/placeholder-white-shirt.jpg",
+        "alt_text": "White Shirt",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "b9glcgep285",
+        "product_id": "1x9px7czxur",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "606vpemcow",
+        "product_id": "1x9px7czxur",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "wxwol6jyd9n",
+        "product_id": "1x9px7czxur",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "41s99py3wfq",
+        "product_id": "1x9px7czxur",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "l6wr8pz8j9",
+        "product_id": "1x9px7czxur",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "hfynwj8bszq",
+        "product_id": "1x9px7czxur",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "d48r194rtih",
+        "product_id": "1x9px7czxur",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "nrsqnfywca8",
+        "product_id": "1x9px7czxur",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "lcgdr0fm76j",
+        "product_id": "1x9px7czxur",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "g6e4cynbhen",
+        "product_id": "1x9px7czxur",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "3icwaqu48bx",
+        "product_id": "1x9px7czxur",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      }
+    ]
+  },
+  {
+    "id": "va03wezga8",
+    "name": "Top",
+    "slug": "top-kv-33",
+    "description": "Top for KV. Class IX to XII, Girls, Shirt, Summer",
+    "category_id": "nmh2q7klu9r",
+    "gender": "girls",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.010Z",
+    "images": [
+      {
+        "id": "9u2a30x5qrg",
+        "product_id": "va03wezga8",
+        "url": "/images/products/placeholder-top.jpg",
+        "alt_text": "Top",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "azy1w7s3st5",
+        "product_id": "va03wezga8",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "bgrrplk7d5c",
+        "product_id": "va03wezga8",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "59dz2vqkwk",
+        "product_id": "va03wezga8",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "1z6g5274qjf",
+        "product_id": "va03wezga8",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "qgsf8k40s0g",
+        "product_id": "va03wezga8",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "bkcar4eqwk7",
+        "product_id": "va03wezga8",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "0lk7wetc5wzd",
+        "product_id": "va03wezga8",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "6xw0jty0cum",
+        "product_id": "va03wezga8",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "4kezcjn0b0b",
+        "product_id": "va03wezga8",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "2hoq3j96uzf",
+        "product_id": "va03wezga8",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "ycw1cnkwa6c",
+        "product_id": "va03wezga8",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      }
+    ]
+  },
+  {
+    "id": "igkr1mjvr3d",
+    "name": "Blue Nikkar",
+    "slug": "blue-nikkar-common-34",
+    "description": "Blue Nikkar for Common. Boys, Nikkar, Summer, Winter",
+    "category_id": "a9ae1sqjr9m",
+    "gender": "boys",
+    "price": 20000,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.010Z",
+    "images": [
+      {
+        "id": "ym8v3g93pu",
+        "product_id": "igkr1mjvr3d",
+        "url": "/images/products/placeholder-blue-nikkar.jpg",
+        "alt_text": "Blue Nikkar",
+        "sort_order": 0,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      }
+    ],
+    "variants": [
+      {
+        "id": "cstdplqy88i",
+        "product_id": "igkr1mjvr3d",
+        "size": "22",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "prhrfhxd3i",
+        "product_id": "igkr1mjvr3d",
+        "size": "24",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "0ivylgdwrpb",
+        "product_id": "igkr1mjvr3d",
+        "size": "26",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "yr4yocwdtq9",
+        "product_id": "igkr1mjvr3d",
+        "size": "28",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "4falfgfggy6",
+        "product_id": "igkr1mjvr3d",
+        "size": "30",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "qgdc68136m",
+        "product_id": "igkr1mjvr3d",
+        "size": "32",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "rvarmocnm6d",
+        "product_id": "igkr1mjvr3d",
+        "size": "34",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "vwfl0l9sg1i",
+        "product_id": "igkr1mjvr3d",
+        "size": "36",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "o3w4c21b0j",
+        "product_id": "igkr1mjvr3d",
+        "size": "38",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "go4dnwvzv84",
+        "product_id": "igkr1mjvr3d",
+        "size": "40",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      },
+      {
+        "id": "ly1rosmxj4m",
+        "product_id": "igkr1mjvr3d",
+        "size": "42",
+        "price": 20000,
+        "stock": 100,
+        "created_at": "2026-09-15T14:05:01.010Z"
+      }
+    ]
+  }
+]

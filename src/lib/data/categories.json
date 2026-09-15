@@ -1,0 +1,66 @@
+[
+  {
+    "id": "hn1xp7l7fv4",
+    "name": "David",
+    "slug": "david",
+    "sort_order": 1,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.003Z"
+  },
+  {
+    "id": "1bzn9uoj5vr",
+    "name": "JJPS",
+    "slug": "jjps",
+    "sort_order": 2,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.003Z"
+  },
+  {
+    "id": "nmh2q7klu9r",
+    "name": "KV",
+    "slug": "kv",
+    "sort_order": 3,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.003Z"
+  },
+  {
+    "id": "f0b2xptz1wl",
+    "name": "Nav Jeevan",
+    "slug": "nav-jeevan",
+    "sort_order": 4,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.003Z"
+  },
+  {
+    "id": "qd4pgp1a8w",
+    "name": "ND",
+    "slug": "nd",
+    "sort_order": 5,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.004Z"
+  },
+  {
+    "id": "paf9gw3e5l",
+    "name": "ST Mary",
+    "slug": "st-mary",
+    "sort_order": 6,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.004Z"
+  },
+  {
+    "id": "a9ae1sqjr9m",
+    "name": "Common",
+    "slug": "common",
+    "sort_order": 7,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.004Z"
+  },
+  {
+    "id": "8iwnkjsmtx",
+    "name": "Global Nav Jeevan School",
+    "slug": "global-nav-jeevan-school",
+    "sort_order": 8,
+    "is_active": true,
+    "created_at": "2026-09-15T14:05:01.004Z"
+  }
+]

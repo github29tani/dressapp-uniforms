@@ -1,13 +1,15 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Package, Clock, Loader2 } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { Package, Clock, Loader2, RefreshCw } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { LinkButton } from "@/components/ui/link-button"
 import { Card, CardContent } from "@/components/ui/card"
 import { createClient } from "@/lib/supabase/client"
+import { useCartStore } from "@/store/cart-store"
 import { formatPrice } from "@/lib/utils-shop"
-import type { Order, OrderStatus } from "@/types"
+import type { Order, OrderStatus, Product, ProductVariant } from "@/types"
 
 const STATUS_CONFIG: Record<OrderStatus, { label: string; color: string }> = {
   placed:           { label: "Placed",           color: "bg-gray-100 text-gray-700" },
@@ -28,6 +30,9 @@ const ORDER_STEPS: OrderStatus[] = [
 export default function OrdersPage() {
   const [orders, setOrders] = useState<Order[]>([])
   const [loading, setLoading] = useState(true)
+  const [reordering, setReordering] = useState<string | null>(null)
+  const router = useRouter()
+  const addItem = useCartStore((s) => s.addItem)
 
   useEffect(() => {
     const supabase = createClient()
@@ -35,7 +40,7 @@ export default function OrdersPage() {
       if (!user) { setLoading(false); return }
       const { data } = await supabase
         .from("orders")
-        .select("*, items:order_items(id, quantity, unit_price, total_price, product:products(name, slug), variant:product_variants(size))")
+        .select("*, items:order_items(id, quantity, unit_price, total_price, product:products(*, images:product_images(id,url,alt_text,sort_order), variants:product_variants(id,size,sku,price,stock)), variant:product_variants(id,size,sku,price,stock))")
         .eq("user_id", user.id)
         .order("created_at", { ascending: false })
       setOrders((data ?? []) as Order[])
@@ -48,6 +53,20 @@ export default function OrdersPage() {
     const supabase = createClient()
     await supabase.from("orders").update({ status: "cancelled", updated_at: new Date().toISOString() }).eq("id", id)
     setOrders((prev) => prev.map((o) => o.id === id ? { ...o, status: "cancelled" as OrderStatus } : o))
+  }
+
+  async function handleReorder(order: Order) {
+    if (!order.items?.length) return
+    setReordering(order.id)
+    order.items.forEach((item) => {
+      const product = item.product as unknown as Product
+      const variant = item.variant as unknown as ProductVariant
+      if (product && variant) {
+        addItem(product, variant, item.quantity)
+      }
+    })
+    setReordering(null)
+    router.push("/cart")
   }
 
   if (loading) {
@@ -139,10 +158,34 @@ export default function OrdersPage() {
                   {/* Actions */}
                   <div className="flex flex-wrap gap-2 pt-2 border-t">
                     {order.status === "delivered" && (
-                      <Button size="sm" className="bg-blue-700 hover:bg-blue-800">Reorder</Button>
+                      <>
+                        <Button
+                          size="sm"
+                          className="bg-blue-700 hover:bg-blue-800 gap-1.5"
+                          onClick={() => handleReorder(order)}
+                          disabled={reordering === order.id}
+                        >
+                          {reordering === order.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <RefreshCw className="h-3.5 w-3.5" />}
+                          Reorder
+                        </Button>
+                        <LinkButton href="/account/returns" variant="outline" size="sm">
+                          Return / Exchange
+                        </LinkButton>
+                      </>
                     )}
                     {order.status === "shipped" && (
-                      <Button variant="outline" size="sm">Track Shipment</Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => window.open(`https://www.google.com/search?q=track+order+${order.order_number}`, "_blank")}
+                      >
+                        Track Shipment
+                      </Button>
+                    )}
+                    {order.status === "out_for_delivery" && (
+                      <span className="text-sm text-orange-600 font-medium flex items-center gap-1">
+                        🚚 Out for delivery today
+                      </span>
                     )}
                     {["placed", "confirmed"].includes(order.status) && (
                       <Button

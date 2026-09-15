@@ -4,7 +4,7 @@ import { use, useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import { ArrowLeft, Star, Heart, ShoppingCart, Package, RefreshCw, Shield, Minus, Plus, Loader2 } from "lucide-react"
+import { ArrowLeft, Star, Heart, ShoppingCart, Package, RefreshCw, Shield, Minus, Plus, Loader2, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
@@ -14,6 +14,7 @@ import { useWishlistStore } from "@/store/wishlist-store"
 import { createClient } from "@/lib/supabase/client"
 import { formatPrice, discountPercent } from "@/lib/utils-shop"
 import type { Product, ProductVariant } from "@/types"
+import { useRouter } from "next/navigation"
 
 interface Props { params: Promise<{ slug: string }> }
 
@@ -27,6 +28,7 @@ export default function ProductDetailPage({ params }: Props) {
 
   const addItem = useCartStore((s) => s.addItem)
   const { toggle, isWishlisted } = useWishlistStore()
+  const router = useRouter()
 
   useEffect(() => {
     const supabase = createClient()
@@ -59,6 +61,12 @@ export default function ProductDetailPage({ params }: Props) {
   function handleAddToCart() {
     if (!selectedVariant) return
     addItem(p, selectedVariant, quantity)
+  }
+
+  function handleBuyNow() {
+    if (!selectedVariant) return
+    addItem(p, selectedVariant, quantity)
+    router.push("/checkout")
   }
 
   return (
@@ -118,7 +126,7 @@ export default function ProductDetailPage({ params }: Props) {
           <div>
             <div className="flex items-center justify-between mb-3">
               <label className="text-sm font-semibold text-gray-700">Select Size</label>
-              <button className="text-sm text-blue-700 hover:underline">Size Guide</button>
+              <Link href="/size-guide" className="text-sm text-blue-700 hover:underline">Size Guide</Link>
             </div>
             <div className="flex flex-wrap gap-2">
               {p.variants.map((v) => (
@@ -143,6 +151,9 @@ export default function ProductDetailPage({ params }: Props) {
           <div className="flex gap-3">
             <Button size="lg" className="flex-1 bg-blue-700 hover:bg-blue-800 h-12" onClick={handleAddToCart} disabled={!selectedVariant}>
               <ShoppingCart className="h-5 w-5 mr-2" /> Add to Cart
+            </Button>
+            <Button size="lg" className="flex-1 bg-orange-500 hover:bg-orange-600 h-12 text-white" onClick={handleBuyNow} disabled={!selectedVariant}>
+              <Zap className="h-5 w-5 mr-2" /> Buy Now
             </Button>
             <Button size="lg" variant="outline" className={`h-12 w-12 ${wishlisted ? "border-red-300 text-red-500" : ""}`} onClick={() => toggle(p)} aria-label="Toggle wishlist">
               <Heart className={`h-5 w-5 ${wishlisted ? "fill-red-500 text-red-500" : ""}`} />

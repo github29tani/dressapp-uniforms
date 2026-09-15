@@ -1,31 +1,44 @@
 import { createClient } from "@/lib/supabase/server"
 import type { School, Product, Category, UniformKit, Order, OrderStatus } from "@/types"
+import * as LocalData from "@/lib/data"
 
 // ─── SCHOOLS ────────────────────────────────────────────────
 
 export async function getSchools(limit?: number) {
-  const supabase = await createClient()
-  let q = supabase
-    .from("schools")
-    .select("*")
-    .eq("is_active", true)
-    .order("name")
-  if (limit) q = q.limit(limit)
-  const { data, error } = await q
-  if (error) { console.error("getSchools:", error.message); return [] }
-  return (data ?? []).map(normalizeSchool)
+  try {
+    const supabase = await createClient()
+    let q = supabase
+      .from("schools")
+      .select("*")
+      .eq("is_active", true)
+      .order("name")
+    if (limit) q = q.limit(limit)
+    const { data, error } = await q
+    if (error) throw error
+    return (data ?? []).map(normalizeSchool)
+  } catch (error) {
+    // Fallback to local data
+    console.log("Using local schools data")
+    return LocalData.getLocalSchools(limit)
+  }
 }
 
 export async function getSchoolBySlug(slug: string) {
-  const supabase = await createClient()
-  const { data, error } = await supabase
-    .from("schools")
-    .select("*")
-    .eq("slug", slug)
-    .eq("is_active", true)
-    .single()
-  if (error) return null
-  return normalizeSchool(data)
+  try {
+    const supabase = await createClient()
+    const { data, error } = await supabase
+      .from("schools")
+      .select("*")
+      .eq("slug", slug)
+      .eq("is_active", true)
+      .single()
+    if (error) throw error
+    return normalizeSchool(data)
+  } catch (error) {
+    // Fallback to local data
+    console.log("Using local school data for slug:", slug)
+    return LocalData.getLocalSchoolBySlug(slug)
+  }
 }
 
 export async function getAllSchoolsAdmin() {
@@ -78,14 +91,20 @@ function normalizeSchool(s: Record<string, unknown>): School {
 // ─── CATEGORIES ─────────────────────────────────────────────
 
 export async function getCategories() {
-  const supabase = await createClient()
-  const { data, error } = await supabase
-    .from("categories")
-    .select("*")
-    .eq("is_active", true)
-    .order("sort_order")
-  if (error) { console.error("getCategories:", error.message); return [] }
-  return (data ?? []) as Category[]
+  try {
+    const supabase = await createClient()
+    const { data, error } = await supabase
+      .from("categories")
+      .select("*")
+      .eq("is_active", true)
+      .order("sort_order")
+    if (error) throw error
+    return (data ?? []) as Category[]
+  } catch (error) {
+    // Fallback to local data
+    console.log("Using local categories data")
+    return LocalData.getLocalCategories()
+  }
 }
 
 // ─── PRODUCTS ───────────────────────────────────────────────
@@ -105,51 +124,63 @@ export async function getProducts(opts?: {
   onSale?: boolean
   limit?: number
 }) {
-  const supabase = await createClient()
-  let q = supabase
-    .from("products")
-    .select(PRODUCT_SELECT)
-    .eq("is_active", true)
+  try {
+    const supabase = await createClient()
+    let q = supabase
+      .from("products")
+      .select(PRODUCT_SELECT)
+      .eq("is_active", true)
 
-  if (opts?.categorySlug && opts.categorySlug !== "all") {
-    const { data: cat } = await supabase
-      .from("categories")
-      .select("id")
-      .eq("slug", opts.categorySlug)
-      .single()
-    if (cat) q = q.eq("category_id", cat.id)
-  }
-  if (opts?.gender && opts.gender !== "all") {
-    q = q.or(`gender.eq.${opts.gender},gender.eq.unisex`)
-  }
-  if (opts?.search) {
-    q = q.ilike("name", `%${opts.search}%`)
-  }
-  if (opts?.onSale) {
-    q = q.not("discount_price", "is", null)
-  }
-  if (opts?.sort === "price-asc") q = q.order("price", { ascending: true })
-  else if (opts?.sort === "price-desc") q = q.order("price", { ascending: false })
-  else if (opts?.sort === "rating") q = q.order("rating", { ascending: false })
-  else if (opts?.sort === "newest") q = q.order("created_at", { ascending: false })
-  else q = q.order("review_count", { ascending: false })
+    if (opts?.categorySlug && opts.categorySlug !== "all") {
+      const { data: cat } = await supabase
+        .from("categories")
+        .select("id")
+        .eq("slug", opts.categorySlug)
+        .single()
+      if (cat) q = q.eq("category_id", cat.id)
+    }
+    if (opts?.gender && opts.gender !== "all") {
+      q = q.or(`gender.eq.${opts.gender},gender.eq.unisex`)
+    }
+    if (opts?.search) {
+      q = q.ilike("name", `%${opts.search}%`)
+    }
+    if (opts?.onSale) {
+      q = q.not("discount_price", "is", null)
+    }
+    if (opts?.sort === "price-asc") q = q.order("price", { ascending: true })
+    else if (opts?.sort === "price-desc") q = q.order("price", { ascending: false })
+    else if (opts?.sort === "rating") q = q.order("rating", { ascending: false })
+    else if (opts?.sort === "newest") q = q.order("created_at", { ascending: false })
+    else q = q.order("review_count", { ascending: false })
 
-  if (opts?.limit) q = q.limit(opts.limit)
+    if (opts?.limit) q = q.limit(opts.limit)
 
-  const { data, error } = await q
-  if (error) { console.error("getProducts:", error.message); return [] }
-  return (data ?? []).map(normalizeProduct)
+    const { data, error } = await q
+    if (error) throw error
+    return (data ?? []).map(normalizeProduct)
+  } catch (error) {
+    // Fallback to local data
+    console.log("Using local products data")
+    return LocalData.getLocalProducts(opts)
+  }
 }
 
 export async function getProductBySlug(slug: string) {
-  const supabase = await createClient()
-  const { data, error } = await supabase
-    .from("products")
-    .select(PRODUCT_SELECT)
-    .eq("slug", slug)
-    .single()
-  if (error) return null
-  return normalizeProduct(data)
+  try {
+    const supabase = await createClient()
+    const { data, error } = await supabase
+      .from("products")
+      .select(PRODUCT_SELECT)
+      .eq("slug", slug)
+      .single()
+    if (error) throw error
+    return normalizeProduct(data)
+  } catch (error) {
+    // Fallback to local data
+    console.log("Using local product data for slug:", slug)
+    return LocalData.getLocalProductBySlug(slug)
+  }
 }
 
 export async function getAllProductsAdmin() {
@@ -230,16 +261,22 @@ export async function getUniformKitForSchool(schoolId: string, opts?: { class?: 
 // ─── SCHOOL PRODUCTS ────────────────────────────────────────
 
 export async function getProductsForSchool(schoolId: string) {
-  const supabase = await createClient()
-  const { data, error } = await supabase
-    .from("school_products")
-    .select(`product:products(${PRODUCT_SELECT})`)
-    .eq("school_id", schoolId)
-  if (error) { console.error("getProductsForSchool:", error.message); return [] }
-  return ((data ?? []).map((r: Record<string, unknown>) => {
-    const p = r.product as Record<string, unknown>
-    return normalizeProduct(p)
-  }))
+  try {
+    const supabase = await createClient()
+    const { data, error } = await supabase
+      .from("school_products")
+      .select(`product:products(${PRODUCT_SELECT})`)
+      .eq("school_id", schoolId)
+    if (error) throw error
+    return ((data ?? []).map((r: Record<string, unknown>) => {
+      const p = r.product as Record<string, unknown>
+      return normalizeProduct(p)
+    }))
+  } catch (error) {
+    // Fallback to local data
+    console.log("Using local products for school:", schoolId)
+    return LocalData.getLocalProductsForSchool(schoolId)
+  }
 }
 
 // ─── ORDERS ─────────────────────────────────────────────────
