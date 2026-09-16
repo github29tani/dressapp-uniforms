@@ -53,6 +53,7 @@ DECLARE
   size_val TEXT;
   color_val TEXT;
   counter INT;
+  prod RECORD;
 BEGIN
   -- Get all product IDs
   SELECT id INTO prod_david_tshirt FROM products WHERE slug = 't-shirt-david';
