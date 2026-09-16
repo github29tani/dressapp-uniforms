@@ -268,13 +268,20 @@ export async function getProductsForSchool(schoolId: string) {
       .select(`product:products(${PRODUCT_SELECT})`)
       .eq("school_id", schoolId)
     if (error) throw error
+    
+    // If Supabase returns empty array, use local data instead
+    if (!data || data.length === 0) {
+      console.log("No products in Supabase school_products, using local data for school:", schoolId)
+      return LocalData.getLocalProductsForSchool(schoolId)
+    }
+    
     return ((data ?? []).map((r: Record<string, unknown>) => {
       const p = r.product as Record<string, unknown>
       return normalizeProduct(p)
     }))
   } catch (error) {
-    // Fallback to local data
-    console.log("Using local products for school:", schoolId)
+    // Fallback to local data on error
+    console.log("Error fetching from Supabase, using local products for school:", schoolId)
     return LocalData.getLocalProductsForSchool(schoolId)
   }
 }
