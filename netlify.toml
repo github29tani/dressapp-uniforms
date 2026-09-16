@@ -4,9 +4,6 @@
 
 [build.environment]
   NODE_VERSION = "20"
-  # Disable Supabase during build to use local JSON data
-  NEXT_PUBLIC_SUPABASE_URL = ""
-  NEXT_PUBLIC_SUPABASE_ANON_KEY = ""
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"

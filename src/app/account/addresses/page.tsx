@@ -14,6 +14,8 @@ import { createClient } from "@/lib/supabase/client"
 import { INDIAN_STATES } from "@/lib/constants"
 import type { Address } from "@/types"
 
+export const dynamic = 'force-dynamic'
+
 const EMPTY = { label: "", full_name: "", phone: "", line1: "", line2: "", city: "", state: "", pincode: "", is_default: false }
 
 export default function AddressesPage() {
