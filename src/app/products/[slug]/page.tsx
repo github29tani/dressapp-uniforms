@@ -91,15 +91,7 @@ export default function ProductDetailPage({ params }: Props) {
             )}
             {discount > 0 && <Badge className="absolute top-3 left-3 bg-emerald-500 text-white">{discount}% OFF</Badge>}
           </div>
-          {p.images.length > 1 && (
-            <div className="flex gap-2 overflow-x-auto">
-              {p.images.map((img, i) => (
-                <button key={img.id} onClick={() => setActiveImage(i)} className={`flex-shrink-0 w-16 h-16 rounded-lg border-2 overflow-hidden ${activeImage === i ? "border-blue-600" : "border-gray-200"}`}>
-                  <Image src={img.url} alt={`View ${i + 1}`} width={64} height={64} className="object-cover" />
-                </button>
-              ))}
-            </div>
-          )}
+          {/* Removed thumbnail gallery - single main image only */}
         </div>
 
         {/* Info */}

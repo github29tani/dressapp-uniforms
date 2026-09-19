@@ -51,7 +51,7 @@ export default async function HomePage() {
               <LinkButton href="/schools" size="lg" className="bg-white text-blue-700 hover:bg-blue-50 font-bold shadow-lg shadow-blue-900/20">
                 Shop by School <ArrowRight className="h-4 w-4 ml-2" />
               </LinkButton>
-              <LinkButton href="/products" size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10 backdrop-blur-sm">
+              <LinkButton href="/products" size="lg" className="bg-white text-blue-700 hover:bg-blue-100 font-bold shadow-lg shadow-blue-900/20">
                 Browse All Products
               </LinkButton>
             </div>

@@ -4,21 +4,29 @@
 -- Run this AFTER running SUPABASE_SYNC.sql
 -- ============================================================================
 
+-- Step 1: Clear existing variants (so we can re-run this script)
+DELETE FROM product_variants;
+
+-- Step 2: Add variants for all products
 DO $$
 DECLARE
   prod RECORD;
   size_val TEXT;
+  unique_sku TEXT;
 BEGIN
   -- Add variants for ALL products with standard sizes
   FOR prod IN SELECT id, slug FROM products LOOP
     -- Standard clothing sizes 22-42
     FOREACH size_val IN ARRAY ARRAY['22', '24', '26', '28', '30', '32', '34', '36', '38', '40', '42'] LOOP
+      -- Generate unique SKU using product ID to avoid collisions
+      unique_sku := SUBSTRING(MD5(prod.id::text), 1, 8) || '-' || size_val;
+      
       INSERT INTO product_variants (product_id, size, stock, sku)
       VALUES (
         prod.id, 
         size_val, 
         50, 
-        UPPER(SUBSTRING(prod.slug, 1, 6)) || '-' || size_val
+        unique_sku
       );
     END LOOP;
   END LOOP;

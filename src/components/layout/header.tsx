@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ShoppingCart, Heart, User, Search, Menu, X } from "lucide-react"
+import { ShoppingCart, Heart, User, Search, Menu, X, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -204,6 +204,35 @@ export function Header() {
             </form>
           </div>
         )}
+      </div>
+
+      {/* Other Apps Banner - Below Header */}
+      <div className="bg-gradient-to-r from-blue-600 to-blue-700 border-b border-blue-800">
+        <div className="container mx-auto px-4 py-2">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <span className="text-white text-xs sm:text-sm font-medium">
+              🌟 Explore Our Other Apps:
+            </span>
+            <a
+              href="https://dressapp-school-management-system.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-blue-50 text-blue-700 text-xs sm:text-sm font-semibold rounded-full transition-colors shadow-sm"
+            >
+              <span>School Management</span>
+              <ExternalLink className="h-3 w-3" />
+            </a>
+            <a
+              href="https://raktsetu.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-blue-50 text-blue-700 text-xs sm:text-sm font-semibold rounded-full transition-colors shadow-sm"
+            >
+              <span>RaktSetu Blood Bank</span>
+              <ExternalLink className="h-3 w-3" />
+            </a>
+          </div>
+        </div>
       </div>
     </header>
   )

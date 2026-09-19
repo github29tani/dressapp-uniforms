@@ -1,7 +1,7 @@
 import Link from "next/link"
 import {
   TrendingUp, ShoppingBag, Users, GraduationCap, Package,
-  AlertTriangle, Clock, RefreshCw, ArrowRight,
+  AlertTriangle, Clock, RefreshCw, ArrowRight, Image,
 } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { LinkButton } from "@/components/ui/link-button"
@@ -24,6 +24,7 @@ const STATUS_COLORS: Record<string, string> = {
 
 const ADMIN_NAV = [
   { label: "Products",  href: "/admin/products",  icon: Package },
+  { label: "Images",    href: "/admin/images",    icon: Image },
   { label: "Schools",   href: "/admin/schools",   icon: GraduationCap },
   { label: "Orders",    href: "/admin/orders",    icon: ShoppingBag },
   { label: "Inventory", href: "/admin/inventory", icon: AlertTriangle },
