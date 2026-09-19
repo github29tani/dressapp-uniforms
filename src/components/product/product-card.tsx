@@ -44,9 +44,7 @@ export function ProductCard({ product }: ProductCardProps) {
               src={image}
               alt={product.name}
               fill
-              className={`group-hover:scale-105 transition-transform duration-300 ${
-                product.images[0]?.object_fit === "contain" ? "object-contain" : "object-cover"
-              }`}
+              className="object-contain group-hover:scale-105 transition-transform duration-300"
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
           ) : (

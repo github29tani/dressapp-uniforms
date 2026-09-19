@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Upload, Image as ImageIcon, Loader2, Check, X, AlertCircle, Maximize2, Minimize2 } from "lucide-react"
+import { Upload, Image as ImageIcon, Loader2, Check, X, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
@@ -10,14 +10,11 @@ import { createClient } from "@/lib/supabase/client"
 import type { Product, Category } from "@/types"
 import Image from "next/image"
 
-type ImageFit = "cover" | "contain"
-
 export default function AdminImagesPage() {
   const [products, setProducts] = useState<Product[]>([])
   const [selectedProduct, setSelectedProduct] = useState<string>("")
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [preview, setPreview] = useState<string>("")
-  const [imageFit, setImageFit] = useState<ImageFit>("cover")
   const [uploading, setUploading] = useState(false)
   const [success, setSuccess] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -88,7 +85,7 @@ export default function AdminImagesPage() {
       formData.append('file', selectedFile)
       formData.append('productId', selectedProduct)
       formData.append('fileName', fileName)
-      formData.append('objectFit', imageFit)
+      formData.append('objectFit', 'contain') // Always use contain (full image)
 
       // Upload via API route (bypasses RLS issues)
       const response = await fetch('/api/upload-image', {
@@ -236,78 +233,25 @@ export default function AdminImagesPage() {
               {/* Image Preview - How it will look in UI */}
               {preview && (
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <Label>Preview in Product Card (4:5 ratio)</Label>
-                    <div className="flex items-center gap-2 text-xs">
-                      <button
-                        type="button"
-                        onClick={() => setImageFit("cover")}
-                        className={`flex items-center gap-1 px-2 py-1 rounded ${
-                          imageFit === "cover"
-                            ? "bg-blue-100 text-blue-700 font-semibold"
-                            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                        }`}
-                      >
-                        <Maximize2 className="h-3 w-3" />
-                        Fill (Crop)
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setImageFit("contain")}
-                        className={`flex items-center gap-1 px-2 py-1 rounded ${
-                          imageFit === "contain"
-                            ? "bg-blue-100 text-blue-700 font-semibold"
-                            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                        }`}
-                      >
-                        <Minimize2 className="h-3 w-3" />
-                        Fit (Full)
-                      </button>
-                    </div>
-                  </div>
+                  <Label className="mb-3">Preview in Product Card (4:5 ratio)</Label>
                   
-                  <div className="grid grid-cols-2 gap-4">
-                    {/* Current Selection */}
-                    <div>
-                      <p className="text-xs text-gray-500 mb-2 font-medium">
-                        {imageFit === "cover" ? "Fill/Crop (Recommended)" : "Fit/Full"}
-                      </p>
-                      <div className="relative aspect-[4/5] bg-gray-100 rounded-xl overflow-hidden border-2 border-blue-500">
-                        <Image
-                          src={preview}
-                          alt="Preview"
-                          fill
-                          className={imageFit === "cover" ? "object-cover" : "object-contain"}
-                        />
-                      </div>
-                      <p className="text-xs text-gray-500 mt-2 text-center">
-                        {imageFit === "cover" ? "✓ Fills entire frame (may crop edges)" : "Shows full image (may have gaps)"}
-                      </p>
+                  <div className="max-w-sm mx-auto">
+                    <div className="relative aspect-[4/5] bg-gray-100 rounded-xl overflow-hidden border-2 border-blue-500">
+                      <Image
+                        src={preview}
+                        alt="Preview"
+                        fill
+                        className="object-contain"
+                      />
                     </div>
-
-                    {/* Alternative Option */}
-                    <div>
-                      <p className="text-xs text-gray-500 mb-2 font-medium">
-                        {imageFit === "cover" ? "Alternative: Fit/Full" : "Alternative: Fill/Crop"}
-                      </p>
-                      <div className="relative aspect-[4/5] bg-gray-100 rounded-xl overflow-hidden border-2 border-gray-300">
-                        <Image
-                          src={preview}
-                          alt="Alternative preview"
-                          fill
-                          className={imageFit === "cover" ? "object-contain" : "object-cover"}
-                        />
-                      </div>
-                      <p className="text-xs text-gray-500 mt-2 text-center">
-                        {imageFit === "cover" ? "Shows full image (may have gaps)" : "Fills entire frame (may crop edges)"}
-                      </p>
-                    </div>
+                    <p className="text-xs text-gray-500 mt-2 text-center">
+                      ✓ Full image will be visible (no cropping)
+                    </p>
                   </div>
 
                   <div className="mt-3 bg-blue-50 border border-blue-200 rounded-lg p-3">
                     <p className="text-xs text-blue-900">
-                      <strong>💡 Tip:</strong> The "Fill (Crop)" mode is recommended for uniform product images. 
-                      It ensures all products look consistent in the grid layout.
+                      <strong>💡 Note:</strong> All product images are displayed with full visibility to ensure customers see the complete product.
                     </p>
                   </div>
                 </div>
