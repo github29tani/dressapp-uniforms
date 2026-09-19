@@ -2,9 +2,8 @@
 
 import { use, useState, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { notFound } from "next/navigation"
-import { ArrowLeft, Star, Heart, ShoppingCart, Package, RefreshCw, Shield, Minus, Plus, Loader2, Zap } from "lucide-react"
+import { ArrowLeft, Star, Heart, ShoppingCart, Package, RefreshCw, Shield, Minus, Plus, Loader2, Zap, Shirt } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
@@ -85,9 +84,11 @@ export default function ProductDetailPage({ params }: Props) {
         <div className="space-y-3">
           <div className="relative aspect-square bg-gray-100 rounded-xl overflow-hidden">
             {p.images[activeImage]?.url ? (
-              <Image src={p.images[activeImage].url} alt={p.name} fill className="object-cover" priority />
+              <img src={p.images[activeImage].url} alt={p.name} className="absolute inset-0 w-full h-full object-contain" />
             ) : (
-              <div className="absolute inset-0 flex items-center justify-center text-gray-300"><ShoppingCart className="h-20 w-20" /></div>
+              <div className="absolute inset-0 flex items-center justify-center text-gray-300">
+                <Shirt className="h-32 w-32 text-gray-300" strokeWidth={1.5} />
+              </div>
             )}
             {discount > 0 && <Badge className="absolute top-3 left-3 bg-emerald-500 text-white">{discount}% OFF</Badge>}
           </div>

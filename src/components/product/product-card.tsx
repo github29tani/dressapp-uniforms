@@ -1,8 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
-import { Heart, ShoppingCart, Star } from "lucide-react"
+import { Heart, ShoppingCart, Star, Shirt } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useCartStore } from "@/store/cart-store"
 import { useWishlistStore } from "@/store/wishlist-store"
@@ -40,16 +39,14 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Image area */}
         <div className="relative aspect-[4/5] bg-gray-50 overflow-hidden">
           {image ? (
-            <Image
+            <img
               src={image}
               alt={product.name}
-              fill
-              className="object-contain group-hover:scale-105 transition-transform duration-300"
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center">
-              <ShoppingCart className="h-10 w-10 text-gray-200" />
+              <Shirt className="h-24 w-24 text-gray-300" strokeWidth={1.5} />
             </div>
           )}
 

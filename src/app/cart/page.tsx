@@ -1,8 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
-import { Trash2, Minus, Plus, ShoppingBag, Tag, ArrowRight } from "lucide-react"
+import { Trash2, Minus, Plus, ShoppingBag, Tag, ArrowRight, Shirt } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { LinkButton } from "@/components/ui/link-button"
 import { Input } from "@/components/ui/input"
@@ -79,10 +78,10 @@ export default function CartPage() {
                   {/* Image */}
                   <div className="relative w-20 h-24 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden">
                     {image ? (
-                      <Image src={image} alt={item.product.name} fill className="object-cover" />
+                      <img src={image} alt={item.product.name} className="absolute inset-0 w-full h-full object-contain" />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center text-gray-300">
-                        <ShoppingBag className="h-8 w-8" />
+                        <Shirt className="h-10 w-10" strokeWidth={1.5} />
                       </div>
                     )}
                   </div>

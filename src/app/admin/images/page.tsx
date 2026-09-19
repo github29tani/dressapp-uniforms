@@ -8,7 +8,6 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { createClient } from "@/lib/supabase/client"
 import type { Product, Category } from "@/types"
-import Image from "next/image"
 
 export default function AdminImagesPage() {
   const [products, setProducts] = useState<Product[]>([])
@@ -174,11 +173,10 @@ export default function AdminImagesPage() {
                   </div>
                   <Label className="text-xs text-gray-600 mb-2 block">Current Image:</Label>
                   <div className="relative w-40 h-52 rounded-lg overflow-hidden border-2 border-amber-300">
-                    <Image
+                    <img
                       src={selectedProductData.images[0].url}
                       alt={selectedProductData.name}
-                      fill
-                      className="object-cover"
+                      className="absolute inset-0 w-full h-full object-contain"
                     />
                   </div>
                 </div>
@@ -194,11 +192,10 @@ export default function AdminImagesPage() {
                   >
                     {preview ? (
                       <div className="relative w-full h-full">
-                        <Image
+                        <img
                           src={preview}
                           alt="Preview"
-                          fill
-                          className="object-contain p-2"
+                          className="absolute inset-0 w-full h-full object-contain p-2"
                         />
                         <button
                           type="button"
@@ -237,11 +234,10 @@ export default function AdminImagesPage() {
                   
                   <div className="max-w-sm mx-auto">
                     <div className="relative aspect-[4/5] bg-gray-100 rounded-xl overflow-hidden border-2 border-blue-500">
-                      <Image
+                      <img
                         src={preview}
                         alt="Preview"
-                        fill
-                        className="object-contain"
+                        className="absolute inset-0 w-full h-full object-contain"
                       />
                     </div>
                     <p className="text-xs text-gray-500 mt-2 text-center">
