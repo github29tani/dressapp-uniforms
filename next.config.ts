@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
         hostname: 'placehold.co',
       },
     ],
+    // Add formats for better optimization
+    formats: ['image/webp', 'image/avif'],
+    // Increase device sizes for better responsive images
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
   },
 };
 

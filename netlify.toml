@@ -10,3 +10,9 @@
 
 [functions]
   node_bundler = "esbuild"
+
+# Next.js Image Optimization
+[[redirects]]
+  from = "/_next/image*"
+  to = "/.netlify/images?url=:url&w=:width&q=:quality"
+  status = 200
