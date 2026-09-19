@@ -20,11 +20,37 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
+    // Check for existing image and delete it first
+    const { data: existingImages } = await supabase
+      .from('product_images')
+      .select('id, url')
+      .eq('product_id', productId)
+
+    if (existingImages && existingImages.length > 0) {
+      // Delete old images from storage
+      for (const img of existingImages) {
+        // Extract file path from URL
+        const urlParts = img.url.split('/product-images/')
+        if (urlParts.length > 1) {
+          const oldFilePath = urlParts[1]
+          await supabase.storage
+            .from('product-images')
+            .remove([oldFilePath])
+        }
+      }
+
+      // Delete old database records
+      await supabase
+        .from('product_images')
+        .delete()
+        .eq('product_id', productId)
+    }
+
     // Convert file to buffer
     const arrayBuffer = await file.arrayBuffer()
     const buffer = Buffer.from(arrayBuffer)
 
-    // Upload to Supabase Storage using service role (bypasses RLS)
+    // Upload new image to Supabase Storage
     const { data: uploadData, error: uploadError } = await supabase.storage
       .from('product-images')
       .upload(fileName, buffer, {
@@ -43,10 +69,10 @@ export async function POST(request: NextRequest) {
       .from('product-images')
       .getPublicUrl(fileName)
 
-    // Update product_images table
+    // Insert new product_images record
     const { error: dbError } = await supabase
       .from('product_images')
-      .upsert({
+      .insert({
         product_id: productId,
         url: publicUrl,
         alt_text: file.name,
@@ -55,47 +81,15 @@ export async function POST(request: NextRequest) {
 
     if (dbError) {
       console.error('Database error:', dbError)
-      
-      // If upsert fails, try insert or update separately
-      const { data: existing } = await supabase
-        .from('product_images')
-        .select('id')
-        .eq('product_id', productId)
-        .eq('sort_order', 1)
-        .single()
-
-      if (existing) {
-        // Update existing
-        const { error: updateError } = await supabase
-          .from('product_images')
-          .update({ url: publicUrl, alt_text: file.name })
-          .eq('product_id', productId)
-          .eq('sort_order', 1)
-        
-        if (updateError) {
-          return NextResponse.json({ error: updateError.message }, { status: 400 })
-        }
-      } else {
-        // Insert new
-        const { error: insertError } = await supabase
-          .from('product_images')
-          .insert({
-            product_id: productId,
-            url: publicUrl,
-            alt_text: file.name,
-            sort_order: 1
-          })
-        
-        if (insertError) {
-          return NextResponse.json({ error: insertError.message }, { status: 400 })
-        }
-      }
+      return NextResponse.json({ error: dbError.message }, { status: 400 })
     }
 
     return NextResponse.json({ 
       success: true, 
       url: publicUrl,
-      message: 'Image uploaded successfully'
+      message: existingImages && existingImages.length > 0 
+        ? 'Image replaced successfully' 
+        : 'Image uploaded successfully'
     })
 
   } catch (error: any) {

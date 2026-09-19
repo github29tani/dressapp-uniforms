@@ -13,6 +13,7 @@
       "dependencies": [
         "npm:@base-ui/react@^1.7.0",
         "npm:@netlify/plugin-nextjs@^5.15.13",
+        "npm:@radix-ui/react-dropdown-menu@^2.1.24",
         "npm:@supabase/ssr@~0.12.5",
         "npm:@supabase/supabase-js@^2.112.4",
         "npm:@tailwindcss/postcss@4",

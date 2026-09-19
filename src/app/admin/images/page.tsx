@@ -164,9 +164,18 @@ export default function AdminImagesPage() {
 
               {/* Current Image Preview */}
               {selectedProductData && selectedProductData.images && selectedProductData.images.length > 0 && (
-                <div>
-                  <Label>Current Image</Label>
-                  <div className="mt-2 relative w-40 h-52 rounded-lg overflow-hidden border">
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                  <div className="flex items-start gap-3 mb-3">
+                    <AlertCircle className="h-5 w-5 text-amber-600 mt-0.5 shrink-0" />
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-amber-900">Product Already Has Image</p>
+                      <p className="text-xs text-amber-700 mt-1">
+                        Uploading a new image will <strong>replace</strong> the existing one. The old image will be permanently deleted.
+                      </p>
+                    </div>
+                  </div>
+                  <Label className="text-xs text-gray-600 mb-2 block">Current Image:</Label>
+                  <div className="relative w-40 h-52 rounded-lg overflow-hidden border-2 border-amber-300">
                     <Image
                       src={selectedProductData.images[0].url}
                       alt={selectedProductData.name}
