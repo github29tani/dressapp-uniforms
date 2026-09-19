@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Trash2, Loader2, AlertCircle, Check } from "lucide-react"
+import { Trash2, Loader2, AlertCircle, Check, Image as ImageIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { createClient } from "@/lib/supabase/client"
@@ -11,10 +11,12 @@ interface OrphanedImage {
   url: string
   product_id: string
   product_name: string
+  category_name: string
 }
 
 export default function AdminCleanupPage() {
   const [orphanedImages, setOrphanedImages] = useState<OrphanedImage[]>([])
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set())
   const [loading, setLoading] = useState(true)
   const [cleaning, setCleaning] = useState(false)
   const [success, setSuccess] = useState<string | null>(null)
@@ -32,7 +34,7 @@ export default function AdminCleanupPage() {
       // Get all product images with product info
       const { data: images } = await supabase
         .from("product_images")
-        .select("id, url, product_id, products(name)")
+        .select("id, url, product_id, created_at, products(name, category:categories(name))")
         .order("created_at", { ascending: false })
 
       if (!images) {
@@ -66,7 +68,8 @@ export default function AdminCleanupPage() {
             id: image.id,
             url: image.url,
             product_id: image.product_id,
-            product_name: (image as any).products?.name || 'Unknown Product'
+            product_name: (image as any).products?.name || 'Unknown Product',
+            category_name: (image as any).products?.category?.name || 'Unknown Category'
           })
         }
       }
@@ -77,6 +80,26 @@ export default function AdminCleanupPage() {
       setError('Failed to load images')
     } finally {
       setLoading(false)
+    }
+  }
+
+  function toggleSelect(id: string) {
+    setSelectedIds(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(id)) {
+        newSet.delete(id)
+      } else {
+        newSet.add(id)
+      }
+      return newSet
+    })
+  }
+
+  function toggleSelectAll() {
+    if (selectedIds.size === orphanedImages.length) {
+      setSelectedIds(new Set())
+    } else {
+      setSelectedIds(new Set(orphanedImages.map(img => img.id)))
     }
   }
 
@@ -101,6 +124,7 @@ export default function AdminCleanupPage() {
 
       setSuccess(`Successfully deleted ${ids.length} orphaned image records`)
       setOrphanedImages([])
+      setSelectedIds(new Set())
       
       // Reload after a moment
       setTimeout(() => {
@@ -116,35 +140,54 @@ export default function AdminCleanupPage() {
     }
   }
 
-  async function deleteOne(id: string) {
+  async function deleteSelected() {
+    if (selectedIds.size === 0) return
+
+    if (!confirm(`Delete ${selectedIds.size} selected orphaned image record${selectedIds.size !== 1 ? 's' : ''}?`)) {
+      return
+    }
+
+    setCleaning(true)
+    setError(null)
+    setSuccess(null)
+
     try {
+      const ids = Array.from(selectedIds)
+      
       const { error: deleteError } = await supabase
         .from('product_images')
         .delete()
-        .eq('id', id)
+        .in('id', ids)
 
       if (deleteError) throw deleteError
 
-      setOrphanedImages(prev => prev.filter(img => img.id !== id))
-      setSuccess('Deleted 1 orphaned image record')
+      setSuccess(`Successfully deleted ${ids.length} orphaned image record${ids.length !== 1 ? 's' : ''}`)
+      setOrphanedImages(prev => prev.filter(img => !selectedIds.has(img.id)))
+      setSelectedIds(new Set())
+      
       setTimeout(() => setSuccess(null), 2000)
 
     } catch (err: any) {
-      console.error('Error deleting image:', err)
-      setError(err.message || 'Failed to delete image')
+      console.error('Error deleting images:', err)
+      setError(err.message || 'Failed to delete orphaned images')
+    } finally {
+      setCleaning(false)
     }
   }
+
+  const allSelected = orphanedImages.length > 0 && selectedIds.size === orphanedImages.length
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white border-b sticky top-0 z-40">
         <div className="container mx-auto px-4 h-14 flex items-center gap-3">
           <AlertCircle className="h-5 w-5 text-orange-600" />
-          <span className="font-bold text-gray-900">Database Cleanup</span>
+          <span className="font-bold text-gray-900">Database Cleanup - Orphaned Images</span>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-4 py-8 max-w-7xl">
+        {/* Info Card */}
         <Card className="mb-6">
           <CardContent className="p-6">
             <div className="flex items-start gap-4 mb-4">
@@ -186,23 +229,43 @@ export default function AdminCleanupPage() {
                   </p>
                 </div>
 
-                <Button
-                  onClick={deleteAllOrphaned}
-                  disabled={cleaning}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white mb-4"
-                >
-                  {cleaning ? (
-                    <>
-                      <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                      Cleaning...
-                    </>
-                  ) : (
-                    <>
-                      <Trash2 className="h-4 w-4 mr-2" />
-                      Delete All {orphanedImages.length} Orphaned Records
-                    </>
-                  )}
-                </Button>
+                {/* Action Buttons */}
+                <div className="flex items-center gap-3 flex-wrap">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={toggleSelectAll}
+                  >
+                    {allSelected ? 'Deselect All' : 'Select All'}
+                  </Button>
+
+                  <Button
+                    onClick={deleteSelected}
+                    disabled={selectedIds.size === 0 || cleaning}
+                    className="bg-red-600 hover:bg-red-700 text-white"
+                  >
+                    {cleaning ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                        Deleting...
+                      </>
+                    ) : (
+                      <>
+                        <Trash2 className="h-4 w-4 mr-2" />
+                        Delete Selected ({selectedIds.size})
+                      </>
+                    )}
+                  </Button>
+
+                  <Button
+                    onClick={deleteAllOrphaned}
+                    disabled={cleaning}
+                    variant="outline"
+                    className="border-red-300 text-red-700 hover:bg-red-50"
+                  >
+                    Delete All {orphanedImages.length}
+                  </Button>
+                </div>
               </div>
             )}
 
@@ -226,35 +289,60 @@ export default function AdminCleanupPage() {
           </CardContent>
         </Card>
 
+        {/* Image Grid */}
         {orphanedImages.length > 0 && (
-          <Card>
-            <CardContent className="p-6">
-              <h3 className="font-semibold mb-4">Orphaned Records ({orphanedImages.length})</h3>
-              <div className="space-y-2">
-                {orphanedImages.map((img) => (
-                  <div
-                    key={img.id}
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border"
-                  >
-                    <div className="flex-1 min-w-0">
-                      <p className="font-medium text-sm text-gray-900 truncate">
-                        {img.product_name}
-                      </p>
-                      <p className="text-xs text-gray-500 truncate">{img.url}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {orphanedImages.map((image) => (
+              <Card 
+                key={image.id} 
+                className={`overflow-hidden cursor-pointer transition-all ${
+                  selectedIds.has(image.id) ? 'ring-2 ring-red-500 shadow-lg' : ''
+                }`}
+                onClick={() => toggleSelect(image.id)}
+              >
+                <CardContent className="p-0">
+                  {/* Image - Show broken image icon */}
+                  <div className="relative aspect-[4/5] bg-gray-100 flex items-center justify-center">
+                    <div className="text-center p-4">
+                      <ImageIcon className="h-16 w-16 text-gray-300 mx-auto mb-2" />
+                      <p className="text-xs text-gray-400">File missing</p>
                     </div>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => deleteOne(img.id)}
-                      className="ml-2 text-red-600 hover:text-red-700 hover:bg-red-50"
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
+                    
+                    {/* Checkbox Overlay */}
+                    <div className="absolute top-2 left-2">
+                      <div className={`w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all ${
+                        selectedIds.has(image.id)
+                          ? 'bg-red-600 border-red-600'
+                          : 'bg-white/90 border-gray-300'
+                      }`}>
+                        {selectedIds.has(image.id) && (
+                          <Check className="h-4 w-4 text-white" />
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Broken badge */}
+                    <div className="absolute top-2 right-2">
+                      <span className="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">
+                        ORPHANED
+                      </span>
+                    </div>
                   </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+
+                  {/* Info */}
+                  <div className="p-3 border-t">
+                    <h3 className="font-semibold text-sm text-gray-900 line-clamp-2 mb-1">
+                      {image.product_name}
+                    </h3>
+                    <p className="text-xs text-gray-500 mb-2">{image.category_name}</p>
+                    <p className="text-xs text-gray-400 truncate" title={image.url}>
+                      {image.url.split('/').pop()}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         )}
       </div>
     </div>
