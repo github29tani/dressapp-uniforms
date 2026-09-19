@@ -15,6 +15,7 @@ export async function POST(request: NextRequest) {
     const file = formData.get('file') as File
     const productId = formData.get('productId') as string
     const fileName = formData.get('fileName') as string
+    const objectFit = (formData.get('objectFit') as string) || 'cover'
 
     if (!file || !productId || !fileName) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
@@ -76,7 +77,8 @@ export async function POST(request: NextRequest) {
         product_id: productId,
         url: publicUrl,
         alt_text: file.name,
-        sort_order: 1
+        sort_order: 1,
+        object_fit: objectFit as "cover" | "contain"
       })
 
     if (dbError) {

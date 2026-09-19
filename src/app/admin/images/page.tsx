@@ -88,6 +88,7 @@ export default function AdminImagesPage() {
       formData.append('file', selectedFile)
       formData.append('productId', selectedProduct)
       formData.append('fileName', fileName)
+      formData.append('objectFit', imageFit)
 
       // Upload via API route (bypasses RLS issues)
       const response = await fetch('/api/upload-image', {

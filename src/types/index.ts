@@ -53,6 +53,7 @@ export interface ProductImage {
   url: string
   alt_text?: string
   sort_order: number
+  object_fit?: "cover" | "contain"  // How image should fit in frame
   created_at?: string
 }
 
