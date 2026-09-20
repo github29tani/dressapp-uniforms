@@ -75,42 +75,71 @@ export default function ImagesManagerPage() {
 
   function handleFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
     const files = Array.from(e.target.files || [])
-    if (files.length === 0) return
+    console.log(`Selected ${files.length} files`)
+    
+    if (files.length === 0) {
+      console.log('No files selected')
+      return
+    }
 
+    setUploadError(null)
     const validFiles: File[] = []
-    const newPreviews: string[] = []
+    const invalidFiles: string[] = []
+    let loadedPreviews = 0
 
     files.forEach(file => {
+      console.log(`Processing file: ${file.name}, type: ${file.type}, size: ${file.size}`)
+      
       // Validate file type
       if (!file.type.startsWith("image/")) {
-        setUploadError("Please select only image files")
+        invalidFiles.push(`${file.name} (not an image)`)
+        console.log(`Rejected ${file.name}: not an image`)
         return
       }
 
       // Validate file size (max 5MB)
       if (file.size > 5 * 1024 * 1024) {
-        setUploadError("Each image must be less than 5MB")
+        invalidFiles.push(`${file.name} (too large, max 5MB)`)
+        console.log(`Rejected ${file.name}: too large`)
         return
       }
 
       validFiles.push(file)
+      console.log(`Accepted ${file.name}`)
       
       // Create preview
       const reader = new FileReader()
       reader.onloadend = () => {
-        newPreviews.push(reader.result as string)
-        if (newPreviews.length === validFiles.length) {
-          setPreviews(prev => [...prev, ...newPreviews])
+        loadedPreviews++
+        console.log(`Preview loaded for ${file.name} (${loadedPreviews}/${validFiles.length})`)
+        
+        setPreviews(prev => [...prev, reader.result as string])
+        
+        if (loadedPreviews === validFiles.length) {
+          console.log('All previews loaded')
         }
+      }
+      reader.onerror = () => {
+        console.error(`Failed to read ${file.name}`)
       }
       reader.readAsDataURL(file)
     })
 
-    setSelectedFiles(prev => [...prev, ...validFiles])
-    setUploadError(null)
+    if (validFiles.length > 0) {
+      setSelectedFiles(prev => {
+        const updated = [...prev, ...validFiles]
+        console.log(`Total files selected: ${updated.length}`)
+        return updated
+      })
+    }
+
+    if (invalidFiles.length > 0) {
+      setUploadError(`Skipped ${invalidFiles.length} file(s): ${invalidFiles.join(', ')}`)
+    }
     
     // Reset input so same files can be selected again if needed
     e.target.value = ''
+    console.log('File input reset')
   }
 
   function removePreview(index: number) {
@@ -509,15 +538,20 @@ export default function ImagesManagerPage() {
                     <div className="mt-2 space-y-3">
                       <label
                         htmlFor="file"
-                        className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
+                        className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer hover:bg-gray-50 transition-colors hover:border-blue-400"
                       >
                         <div className="flex flex-col items-center justify-center py-6">
                           <Upload className="h-12 w-12 text-gray-400 mb-3" />
-                          <p className="text-sm text-gray-600 mb-1">Click to select images or drag and drop</p>
+                          <p className="text-sm text-gray-600 mb-1 font-semibold">Click to select images</p>
                           <p className="text-xs text-gray-400 mb-2">PNG, JPG or WebP (max 5MB each)</p>
                           <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg">
-                            <p className="text-xs font-semibold">📁 You can select multiple images at once</p>
+                            <p className="text-xs font-semibold">📁 Select multiple images using Ctrl/Cmd + Click</p>
                           </div>
+                          {selectedFiles.length > 0 && (
+                            <div className="mt-3 bg-green-100 text-green-800 px-4 py-2 rounded-lg">
+                              <p className="text-xs font-bold">✓ {selectedFiles.length} image{selectedFiles.length !== 1 ? 's' : ''} ready to upload</p>
+                            </div>
+                          )}
                         </div>
                         <input
                           id="file"
@@ -529,7 +563,7 @@ export default function ImagesManagerPage() {
                         />
                       </label>
                       <p className="text-xs text-center text-gray-500">
-                        Or click multiple times to keep adding more images
+                        Click multiple times to keep adding more images • Or select all at once with Ctrl/Cmd
                       </p>
                     </div>
                   </div>
