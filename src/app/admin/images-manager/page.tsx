@@ -498,17 +498,26 @@ export default function ImagesManagerPage() {
 
                   {/* File Input */}
                   <div>
-                    <Label htmlFor="file">Select Image Files *</Label>
-                    <div className="mt-2">
+                    <div className="flex items-center justify-between mb-2">
+                      <Label htmlFor="file">Select Image Files *</Label>
+                      <div className="bg-blue-50 border border-blue-200 rounded px-3 py-1">
+                        <p className="text-xs text-blue-700 font-medium">
+                          💡 Hold <kbd className="bg-white px-1.5 py-0.5 rounded text-xs border border-blue-300">Ctrl</kbd> or <kbd className="bg-white px-1.5 py-0.5 rounded text-xs border border-blue-300">Cmd</kbd> to select multiple files
+                        </p>
+                      </div>
+                    </div>
+                    <div className="mt-2 space-y-3">
                       <label
                         htmlFor="file"
                         className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
                       >
                         <div className="flex flex-col items-center justify-center py-6">
                           <Upload className="h-12 w-12 text-gray-400 mb-3" />
-                          <p className="text-sm text-gray-600 mb-1">Click to upload or drag and drop</p>
-                          <p className="text-xs text-gray-400">PNG, JPG or WebP (max 5MB each)</p>
-                          <p className="text-xs text-blue-600 mt-2 font-medium">Select multiple images or add more images anytime</p>
+                          <p className="text-sm text-gray-600 mb-1">Click to select images or drag and drop</p>
+                          <p className="text-xs text-gray-400 mb-2">PNG, JPG or WebP (max 5MB each)</p>
+                          <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg">
+                            <p className="text-xs font-semibold">📁 You can select multiple images at once</p>
+                          </div>
                         </div>
                         <input
                           id="file"
@@ -519,6 +528,9 @@ export default function ImagesManagerPage() {
                           onChange={handleFileSelect}
                         />
                       </label>
+                      <p className="text-xs text-center text-gray-500">
+                        Or click multiple times to keep adding more images
+                      </p>
                     </div>
                   </div>
 
