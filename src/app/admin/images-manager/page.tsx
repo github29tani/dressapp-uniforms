@@ -410,18 +410,36 @@ export default function ImagesManagerPage() {
                     </Select>
                   </div>
 
-                  {/* Current Image Warning */}
+                  {/* Current Images Display */}
                   {selectedProductData && selectedProductData.images && selectedProductData.images.length > 0 && (
-                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-                      <div className="flex items-start gap-3">
-                        <AlertCircle className="h-5 w-5 text-amber-600 mt-0.5 shrink-0" />
-                        <div>
-                          <p className="text-sm font-semibold text-amber-900">Product Already Has Image</p>
-                          <p className="text-xs text-amber-700 mt-1">
-                            Uploading a new image will <strong>replace</strong> the existing one.
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                      <div className="flex items-start gap-3 mb-3">
+                        <ImageIcon className="h-5 w-5 text-blue-600 mt-0.5 shrink-0" />
+                        <div className="flex-1">
+                          <p className="text-sm font-semibold text-blue-900">
+                            Product has {selectedProductData.images.length} image{selectedProductData.images.length !== 1 ? 's' : ''}
+                          </p>
+                          <p className="text-xs text-blue-700 mt-1">
+                            You can add more images. Multiple images per product are supported.
                           </p>
                         </div>
                       </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        {selectedProductData.images.slice(0, 3).map((img: any, idx: number) => (
+                          <div key={img.id} className="relative aspect-square rounded-lg overflow-hidden border-2 border-blue-300">
+                            <img
+                              src={img.url}
+                              alt={selectedProductData.name}
+                              className="absolute inset-0 w-full h-full object-contain"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                      {selectedProductData.images.length > 3 && (
+                        <p className="text-xs text-blue-600 mt-2 text-center">
+                          +{selectedProductData.images.length - 3} more image{selectedProductData.images.length - 3 !== 1 ? 's' : ''}
+                        </p>
+                      )}
                     </div>
                   )}
 

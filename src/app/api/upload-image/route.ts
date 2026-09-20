@@ -21,31 +21,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    // Check for existing image and delete it first
-    const { data: existingImages } = await supabase
+    // Get existing images count to determine sort_order
+    const { data: existingImages, count } = await supabase
       .from('product_images')
-      .select('id, url')
+      .select('id', { count: 'exact' })
       .eq('product_id', productId)
 
-    if (existingImages && existingImages.length > 0) {
-      // Delete old images from storage
-      for (const img of existingImages) {
-        // Extract file path from URL
-        const urlParts = img.url.split('/product-images/')
-        if (urlParts.length > 1) {
-          const oldFilePath = urlParts[1]
-          await supabase.storage
-            .from('product-images')
-            .remove([oldFilePath])
-        }
-      }
-
-      // Delete old database records
-      await supabase
-        .from('product_images')
-        .delete()
-        .eq('product_id', productId)
-    }
+    const nextSortOrder = (count || 0) + 1
 
     // Convert file to buffer
     const arrayBuffer = await file.arrayBuffer()
@@ -57,7 +39,7 @@ export async function POST(request: NextRequest) {
       .upload(fileName, buffer, {
         contentType: file.type,
         cacheControl: '3600',
-        upsert: true
+        upsert: false
       })
 
     if (uploadError) {
@@ -77,7 +59,7 @@ export async function POST(request: NextRequest) {
         product_id: productId,
         url: publicUrl,
         alt_text: file.name,
-        sort_order: 1,
+        sort_order: nextSortOrder,
         object_fit: objectFit as "cover" | "contain"
       })
 
@@ -89,9 +71,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ 
       success: true, 
       url: publicUrl,
-      message: existingImages && existingImages.length > 0 
-        ? 'Image replaced successfully' 
-        : 'Image uploaded successfully'
+      message: 'Image uploaded successfully'
     })
 
   } catch (error: any) {
