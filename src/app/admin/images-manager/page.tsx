@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Upload, Trash2, Loader2, AlertCircle, Check, Image as ImageIcon, RefreshCw } from "lucide-react"
+import { Upload, Trash2, Loader2, AlertCircle, Check, Image as ImageIcon, RefreshCw, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
@@ -33,8 +33,8 @@ export default function ImagesManagerPage() {
   // Upload Tab State
   const [products, setProducts] = useState<Product[]>([])
   const [selectedProduct, setSelectedProduct] = useState<string>("")
-  const [selectedFile, setSelectedFile] = useState<File | null>(null)
-  const [preview, setPreview] = useState<string>("")
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([])
+  const [previews, setPreviews] = useState<string[]>([])
   const [uploading, setUploading] = useState(false)
   const [uploadSuccess, setUploadSuccess] = useState<string | null>(null)
   const [uploadError, setUploadError] = useState<string | null>(null)
@@ -74,32 +74,66 @@ export default function ImagesManagerPage() {
   }
 
   function handleFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0]
-    if (!file) return
+    const files = Array.from(e.target.files || [])
+    if (files.length === 0) return
 
-    if (!file.type.startsWith("image/")) {
-      setUploadError("Please select an image file")
-      return
-    }
+    const validFiles: File[] = []
+    const newPreviews: string[] = []
 
-    if (file.size > 5 * 1024 * 1024) {
-      setUploadError("Image must be less than 5MB")
-      return
-    }
+    files.forEach(file => {
+      // Validate file type
+      if (!file.type.startsWith("image/")) {
+        setUploadError("Please select only image files")
+        return
+      }
 
-    setSelectedFile(file)
+      // Validate file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        setUploadError("Each image must be less than 5MB")
+        return
+      }
+
+      validFiles.push(file)
+      
+      // Create preview
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        newPreviews.push(reader.result as string)
+        if (newPreviews.length === validFiles.length) {
+          setPreviews(prev => [...prev, ...newPreviews])
+        }
+      }
+      reader.readAsDataURL(file)
+    })
+
+    setSelectedFiles(prev => [...prev, ...validFiles])
     setUploadError(null)
-    
-    const reader = new FileReader()
-    reader.onloadend = () => {
-      setPreview(reader.result as string)
-    }
-    reader.readAsDataURL(file)
+  }
+
+  function removePreview(index: number) {
+    setSelectedFiles(prev => prev.filter((_, i) => i !== index))
+    setPreviews(prev => prev.filter((_, i) => i !== index))
+  }
+
+  function movePreview(fromIndex: number, toIndex: number) {
+    if (toIndex < 0 || toIndex >= selectedFiles.length) return
+
+    const newFiles = [...selectedFiles]
+    const newPreviews = [...previews]
+
+    const [movedFile] = newFiles.splice(fromIndex, 1)
+    const [movedPreview] = newPreviews.splice(fromIndex, 1)
+
+    newFiles.splice(toIndex, 0, movedFile)
+    newPreviews.splice(toIndex, 0, movedPreview)
+
+    setSelectedFiles(newFiles)
+    setPreviews(newPreviews)
   }
 
   async function handleUpload() {
-    if (!selectedProduct || !selectedFile) {
-      setUploadError("Please select a product and an image")
+    if (!selectedProduct || selectedFiles.length === 0) {
+      setUploadError("Please select a product and at least one image")
       return
     }
 
@@ -112,38 +146,54 @@ export default function ImagesManagerPage() {
       if (!product) throw new Error("Product not found")
 
       const category = product.category as Category
-      const fileName = `${category.slug}/${product.slug}-${Date.now()}.${selectedFile.name.split('.').pop()}`
+      let uploadedCount = 0
+      let failedCount = 0
 
-      const formData = new FormData()
-      formData.append('file', selectedFile)
-      formData.append('productId', selectedProduct)
-      formData.append('fileName', fileName)
-      formData.append('objectFit', 'contain')
+      for (const file of selectedFiles) {
+        try {
+          const fileName = `${category.slug}/${product.slug}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${file.name.split('.').pop()}`
 
-      const response = await fetch('/api/upload-image', {
-        method: 'POST',
-        body: formData
-      })
+          const formData = new FormData()
+          formData.append('file', file)
+          formData.append('productId', selectedProduct)
+          formData.append('fileName', fileName)
+          formData.append('objectFit', 'contain')
 
-      const result = await response.json()
+          const response = await fetch('/api/upload-image', {
+            method: 'POST',
+            body: formData
+          })
 
-      if (!response.ok) {
-        throw new Error(result.error || 'Upload failed')
+          const result = await response.json()
+
+          if (!response.ok) {
+            throw new Error(result.error || 'Upload failed')
+          }
+
+          uploadedCount++
+        } catch (err) {
+          console.error('Failed to upload file:', err)
+          failedCount++
+        }
       }
 
-      setUploadSuccess(`Image uploaded successfully for ${product.name}`)
-      setSelectedFile(null)
-      setPreview("")
-      setSelectedProduct("")
-      
-      loadProducts()
-      loadAllImages()
+      if (uploadedCount > 0) {
+        setUploadSuccess(`Successfully uploaded ${uploadedCount} image${uploadedCount !== 1 ? 's' : ''} for ${product.name}${failedCount > 0 ? ` (${failedCount} failed)` : ''}`)
+        setSelectedFiles([])
+        setPreviews([])
+        setSelectedProduct("")
+        
+        loadProducts()
+        loadAllImages()
 
-      setTimeout(() => setUploadSuccess(null), 3000)
+        setTimeout(() => setUploadSuccess(null), 3000)
+      } else {
+        setUploadError("Failed to upload images")
+      }
 
     } catch (err: any) {
-      console.error("Full error:", err)
-      setUploadError(err.message || "Failed to upload image")
+      console.error("Upload error:", err)
+      setUploadError(err.message || "Failed to upload images")
     } finally {
       setUploading(false)
     }
@@ -445,37 +495,109 @@ export default function ImagesManagerPage() {
 
                   {/* File Input */}
                   <div>
-                    <Label htmlFor="file">Select Image File *</Label>
+                    <Label htmlFor="file">Select Image Files *</Label>
                     <div className="mt-2">
                       <label
                         htmlFor="file"
                         className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
                       >
-                        {preview ? (
-                          <div className="relative w-full h-full p-2">
-                            <img
-                              src={preview}
-                              alt="Preview"
-                              className="w-full h-full object-contain"
-                            />
-                          </div>
-                        ) : (
-                          <div className="flex flex-col items-center justify-center py-6">
-                            <Upload className="h-12 w-12 text-gray-400 mb-3" />
-                            <p className="text-sm text-gray-600 mb-1">Click to upload or drag and drop</p>
-                            <p className="text-xs text-gray-400">PNG, JPG or WebP (max 5MB)</p>
-                          </div>
-                        )}
+                        <div className="flex flex-col items-center justify-center py-6">
+                          <Upload className="h-12 w-12 text-gray-400 mb-3" />
+                          <p className="text-sm text-gray-600 mb-1">Click to upload or drag and drop</p>
+                          <p className="text-xs text-gray-400">PNG, JPG or WebP (max 5MB each)</p>
+                          <p className="text-xs text-blue-600 mt-2 font-medium">You can select multiple images</p>
+                        </div>
                         <input
                           id="file"
                           type="file"
                           className="hidden"
                           accept="image/*"
+                          multiple
                           onChange={handleFileSelect}
                         />
                       </label>
                     </div>
                   </div>
+
+                  {/* Image Previews with Reorder & Remove */}
+                  {previews.length > 0 && (
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <Label>Selected Images ({previews.length})</Label>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => {
+                            setSelectedFiles([])
+                            setPreviews([])
+                          }}
+                          className="text-red-600 hover:text-red-700"
+                        >
+                          Clear All
+                        </Button>
+                      </div>
+
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                        {previews.map((preview, index) => (
+                          <div
+                            key={index}
+                            className="relative group aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 border-gray-200"
+                          >
+                            <img
+                              src={preview}
+                              alt={`Preview ${index + 1}`}
+                              className="w-full h-full object-contain"
+                            />
+
+                            {/* Order badge */}
+                            <div className="absolute top-2 left-2 bg-blue-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center">
+                              {index + 1}
+                            </div>
+
+                            {/* Remove button */}
+                            <button
+                              type="button"
+                              onClick={() => removePreview(index)}
+                              className="absolute top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
+                              title="Remove image"
+                            >
+                              <X className="h-4 w-4" />
+                            </button>
+
+                            {/* Reorder buttons */}
+                            <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                              <button
+                                type="button"
+                                onClick={() => movePreview(index, index - 1)}
+                                disabled={index === 0}
+                                className="px-2 py-1 bg-white/90 text-gray-700 text-xs font-medium rounded shadow hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
+                                title="Move left"
+                              >
+                                ←
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => movePreview(index, index + 1)}
+                                disabled={index === previews.length - 1}
+                                className="px-2 py-1 bg-white/90 text-gray-700 text-xs font-medium rounded shadow hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
+                                title="Move right"
+                              >
+                                →
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="mt-3 bg-blue-50 border border-blue-200 rounded-lg p-3">
+                        <p className="text-xs text-blue-900">
+                          <strong>💡 Tip:</strong> The order shown here will be the order displayed on the website. 
+                          Hover over images to reorder them. Click X to remove an image.
+                        </p>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Success/Error Messages */}
                   {uploadSuccess && (
@@ -500,17 +622,17 @@ export default function ImagesManagerPage() {
                   <Button
                     className="w-full bg-blue-700 hover:bg-blue-800"
                     onClick={handleUpload}
-                    disabled={!selectedProduct || !selectedFile || uploading}
+                    disabled={!selectedProduct || selectedFiles.length === 0 || uploading}
                   >
                     {uploading ? (
                       <>
                         <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                        Uploading...
+                        Uploading {selectedFiles.length} image{selectedFiles.length !== 1 ? 's' : ''}...
                       </>
                     ) : (
                       <>
                         <Upload className="h-4 w-4 mr-2" />
-                        Upload Image
+                        Upload {selectedFiles.length > 0 ? `${selectedFiles.length} Image${selectedFiles.length !== 1 ? 's' : ''}` : 'Images'}
                       </>
                     )}
                   </Button>
