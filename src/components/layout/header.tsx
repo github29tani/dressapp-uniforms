@@ -223,7 +223,7 @@ export function Header() {
               <ExternalLink className="h-3 w-3" />
             </a>
             <a
-              href="https://raktsetu.netlify.app"
+              href="https://raktdaan-connect.netlify.app"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-blue-50 text-blue-700 text-xs sm:text-sm font-semibold rounded-full transition-colors shadow-sm"
