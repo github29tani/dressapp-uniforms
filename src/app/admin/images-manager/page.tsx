@@ -108,6 +108,9 @@ export default function ImagesManagerPage() {
 
     setSelectedFiles(prev => [...prev, ...validFiles])
     setUploadError(null)
+    
+    // Reset input so same files can be selected again if needed
+    e.target.value = ''
   }
 
   function removePreview(index: number) {
@@ -505,7 +508,7 @@ export default function ImagesManagerPage() {
                           <Upload className="h-12 w-12 text-gray-400 mb-3" />
                           <p className="text-sm text-gray-600 mb-1">Click to upload or drag and drop</p>
                           <p className="text-xs text-gray-400">PNG, JPG or WebP (max 5MB each)</p>
-                          <p className="text-xs text-blue-600 mt-2 font-medium">You can select multiple images</p>
+                          <p className="text-xs text-blue-600 mt-2 font-medium">Select multiple images or add more images anytime</p>
                         </div>
                         <input
                           id="file"
