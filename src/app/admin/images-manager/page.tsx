@@ -65,12 +65,26 @@ export default function ImagesManagerPage() {
   // ===== UPLOAD TAB FUNCTIONS =====
   async function loadProducts() {
     setLoadingProducts(true)
-    const { data } = await supabase
-      .from("products")
-      .select("*, category:categories(*), images:product_images(id,url,alt_text)")
-      .order("name")
-    setProducts((data ?? []) as Product[])
-    setLoadingProducts(false)
+    console.log('Loading products...')
+    try {
+      const { data, error } = await supabase
+        .from("products")
+        .select("*, category:categories(*), images:product_images(id,url,alt_text)")
+        .order("name")
+      
+      if (error) {
+        console.error('Error loading products:', error)
+        setUploadError(`Failed to load products: ${error.message}`)
+      } else {
+        console.log(`Loaded ${data?.length || 0} products:`, data)
+        setProducts((data ?? []) as Product[])
+      }
+    } catch (err) {
+      console.error('Exception loading products:', err)
+      setUploadError('Failed to load products')
+    } finally {
+      setLoadingProducts(false)
+    }
   }
 
   function handleFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
@@ -472,24 +486,37 @@ export default function ImagesManagerPage() {
                   {/* Product Selection */}
                   <div>
                     <Label htmlFor="product">Select Product *</Label>
-                    <Select value={selectedProduct} onValueChange={(value) => setSelectedProduct(value || "")}>
-                      <SelectTrigger className="mt-2">
-                        <SelectValue placeholder="Choose a product..." />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {loadingProducts ? (
-                          <div className="p-4 text-center text-sm text-gray-500">Loading...</div>
-                        ) : products.length === 0 ? (
-                          <div className="p-4 text-center text-sm text-gray-500">No products found</div>
-                        ) : (
-                          products.map((product) => (
+                    {loadingProducts ? (
+                      <div className="mt-2 flex items-center justify-center h-10 border rounded-lg bg-gray-50">
+                        <Loader2 className="h-4 w-4 animate-spin text-gray-400 mr-2" />
+                        <span className="text-sm text-gray-500">Loading products...</span>
+                      </div>
+                    ) : products.length === 0 ? (
+                      <div className="mt-2 bg-amber-50 border border-amber-200 rounded-lg p-4">
+                        <div className="flex items-start gap-3">
+                          <AlertCircle className="h-5 w-5 text-amber-600 mt-0.5 shrink-0" />
+                          <div>
+                            <p className="text-sm font-semibold text-amber-900">No Products Found</p>
+                            <p className="text-xs text-amber-700 mt-1">
+                              Please create products first before uploading images.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <Select value={selectedProduct} onValueChange={(value) => setSelectedProduct(value || "")}>
+                        <SelectTrigger className="mt-2">
+                          <SelectValue placeholder="Choose a product..." />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {products.map((product) => (
                             <SelectItem key={product.id} value={product.id}>
                               {product.name} - {(product.category as Category)?.name}
                             </SelectItem>
-                          ))
-                        )}
-                      </SelectContent>
-                    </Select>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    )}
                   </div>
 
                   {/* Current Images Display */}
