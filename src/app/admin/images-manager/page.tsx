@@ -694,75 +694,85 @@ export default function ImagesManagerPage() {
           <TabsContent value="manage">
             <Card className="mb-6">
               <CardContent className="p-6">
-                <div className="flex items-center justify-between gap-4 flex-wrap mb-4">
-                  <div>
-                    <p className="text-sm text-gray-600">
-                      {loadingImages ? 'Loading...' : `${images.length} image${images.length !== 1 ? 's' : ''} total`}
-                    </p>
-                    {selectedImageIds.size > 0 && (
-                      <p className="text-sm font-semibold text-blue-700">
-                        {selectedImageIds.size} selected
+                <div className="space-y-4">
+                  {/* Header with counts */}
+                  <div className="flex items-center justify-between gap-4 flex-wrap">
+                    <div>
+                      <p className="text-sm text-gray-600">
+                        {loadingImages ? 'Loading...' : `${images.length} image${images.length !== 1 ? 's' : ''} total`}
                       </p>
-                    )}
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={loadAllImages}
-                      disabled={loadingImages}
-                    >
-                      <RefreshCw className={`h-4 w-4 ${loadingImages ? 'animate-spin' : ''}`} />
-                    </Button>
-
-                    {images.length > 0 && (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={toggleSelectAllImages}
-                      >
-                        {allImagesSelected ? 'Deselect All' : 'Select All'}
-                      </Button>
-                    )}
-                    
-                    <Button
-                      onClick={deleteSelectedImages}
-                      disabled={selectedImageIds.size === 0 || deletingImages}
-                      className="bg-red-600 hover:bg-red-700 text-white"
-                    >
-                      {deletingImages ? (
-                        <>
-                          <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                          Deleting...
-                        </>
-                      ) : (
-                        <>
-                          <Trash2 className="h-4 w-4 mr-2" />
-                          Delete Selected ({selectedImageIds.size})
-                        </>
+                      {selectedImageIds.size > 0 && (
+                        <p className="text-sm font-semibold text-blue-700">
+                          {selectedImageIds.size} selected
+                        </p>
                       )}
-                    </Button>
+                    </div>
+
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={loadAllImages}
+                        disabled={loadingImages}
+                      >
+                        <RefreshCw className={`h-4 w-4 ${loadingImages ? 'animate-spin' : ''}`} />
+                      </Button>
+
+                      {images.length > 0 && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={toggleSelectAllImages}
+                        >
+                          {allImagesSelected ? 'Deselect All' : 'Select All'}
+                        </Button>
+                      )}
+                    </div>
                   </div>
+
+                  {/* Delete button - prominent and separate */}
+                  {selectedImageIds.size > 0 && (
+                    <div className="border-t pt-4">
+                      <Button
+                        onClick={deleteSelectedImages}
+                        disabled={deletingImages}
+                        className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white"
+                        size="lg"
+                      >
+                        {deletingImages ? (
+                          <>
+                            <Loader2 className="h-5 w-5 animate-spin mr-2" />
+                            Deleting {selectedImageIds.size} image{selectedImageIds.size !== 1 ? 's' : ''}...
+                          </>
+                        ) : (
+                          <>
+                            <Trash2 className="h-5 w-5 mr-2" />
+                            Delete {selectedImageIds.size} Selected Image{selectedImageIds.size !== 1 ? 's' : ''}
+                          </>
+                        )}
+                      </Button>
+                    </div>
+                  )}
+
+                  {/* Success/Error Messages */}
+                  {manageSuccess && (
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                      <div className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-green-600 mt-0.5 shrink-0" />
+                        <p className="text-sm font-medium text-green-900">{manageSuccess}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {manageError && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                      <div className="flex items-start gap-3">
+                        <AlertCircle className="h-5 w-5 text-red-600 mt-0.5 shrink-0" />
+                        <p className="text-sm font-medium text-red-900">{manageError}</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
-
-                {manageSuccess && (
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-green-600 mt-0.5 shrink-0" />
-                      <p className="text-sm font-medium text-green-900">{manageSuccess}</p>
-                    </div>
-                  </div>
-                )}
-
-                {manageError && (
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
-                    <div className="flex items-start gap-3">
-                      <AlertCircle className="h-5 w-5 text-red-600 mt-0.5 shrink-0" />
-                      <p className="text-sm font-medium text-red-900">{manageError}</p>
-                    </div>
-                  </div>
-                )}
               </CardContent>
             </Card>
 
