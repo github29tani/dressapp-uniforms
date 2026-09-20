@@ -563,8 +563,9 @@ export default function ImagesManagerPage() {
                       </div>
                     </div>
                     <div className="mt-2 space-y-3">
+                      {/* Main upload area */}
                       <label
-                        htmlFor="file"
+                        htmlFor="file-main"
                         className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer hover:bg-gray-50 transition-colors hover:border-blue-400"
                       >
                         <div className="flex flex-col items-center justify-center py-6">
@@ -581,7 +582,7 @@ export default function ImagesManagerPage() {
                           )}
                         </div>
                         <input
-                          id="file"
+                          id="file-main"
                           type="file"
                           className="hidden"
                           accept="image/*"
@@ -589,8 +590,37 @@ export default function ImagesManagerPage() {
                           onChange={handleFileSelect}
                         />
                       </label>
+
+                      {/* Add More Button - visible when files already selected */}
+                      {selectedFiles.length > 0 && (
+                        <div className="flex items-center gap-2">
+                          <div className="flex-1 border-t border-gray-300"></div>
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={() => document.getElementById('file-add')?.click()}
+                            className="shrink-0"
+                          >
+                            <Upload className="h-4 w-4 mr-2" />
+                            Add More Images
+                          </Button>
+                          <input
+                            id="file-add"
+                            type="file"
+                            className="hidden"
+                            accept="image/*"
+                            multiple
+                            onChange={handleFileSelect}
+                          />
+                          <div className="flex-1 border-t border-gray-300"></div>
+                        </div>
+                      )}
+
                       <p className="text-xs text-center text-gray-500">
-                        Click multiple times to keep adding more images • Or select all at once with Ctrl/Cmd
+                        {selectedFiles.length === 0 
+                          ? "Select multiple images at once with Ctrl/Cmd + Click" 
+                          : "Click 'Add More Images' to select additional files"}
                       </p>
                     </div>
                   </div>
