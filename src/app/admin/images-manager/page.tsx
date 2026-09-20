@@ -96,6 +96,27 @@ export default function ImagesManagerPage() {
       return
     }
 
+    processFiles(files)
+  }
+
+  function handleDrop(e: React.DragEvent<HTMLDivElement>) {
+    e.preventDefault()
+    e.stopPropagation()
+    
+    const files = Array.from(e.dataTransfer.files)
+    console.log(`Dropped ${files.length} files`)
+    
+    if (files.length === 0) return
+    
+    processFiles(files)
+  }
+
+  function handleDragOver(e: React.DragEvent<HTMLDivElement>) {
+    e.preventDefault()
+    e.stopPropagation()
+  }
+
+  function processFiles(files: File[]) {
     setUploadError(null)
     const validFiles: File[] = []
     const invalidFiles: string[] = []
@@ -150,10 +171,6 @@ export default function ImagesManagerPage() {
     if (invalidFiles.length > 0) {
       setUploadError(`Skipped ${invalidFiles.length} file(s): ${invalidFiles.join(', ')}`)
     }
-    
-    // Reset input so same files can be selected again if needed
-    e.target.value = ''
-    console.log('File input reset')
   }
 
   function removePreview(index: number) {
@@ -563,33 +580,42 @@ export default function ImagesManagerPage() {
                       </div>
                     </div>
                     <div className="mt-2 space-y-3">
-                      {/* Main upload area */}
-                      <label
-                        htmlFor="file-main"
-                        className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer hover:bg-gray-50 transition-colors hover:border-blue-400"
+                      {/* Main upload area with drag and drop */}
+                      <div
+                        onDrop={handleDrop}
+                        onDragOver={handleDragOver}
+                        className="relative"
                       >
-                        <div className="flex flex-col items-center justify-center py-6">
-                          <Upload className="h-12 w-12 text-gray-400 mb-3" />
-                          <p className="text-sm text-gray-600 mb-1 font-semibold">Click to select images</p>
-                          <p className="text-xs text-gray-400 mb-2">PNG, JPG or WebP (max 5MB each)</p>
-                          <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg">
-                            <p className="text-xs font-semibold">📁 Select multiple images using Ctrl/Cmd + Click</p>
-                          </div>
-                          {selectedFiles.length > 0 && (
-                            <div className="mt-3 bg-green-100 text-green-800 px-4 py-2 rounded-lg">
-                              <p className="text-xs font-bold">✓ {selectedFiles.length} image{selectedFiles.length !== 1 ? 's' : ''} ready to upload</p>
+                        <label
+                          htmlFor="file-main"
+                          className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-lg cursor-pointer hover:bg-gray-50 transition-colors hover:border-blue-400"
+                        >
+                          <div className="flex flex-col items-center justify-center py-6">
+                            <Upload className="h-12 w-12 text-gray-400 mb-3" />
+                            <p className="text-sm text-gray-600 mb-1 font-semibold">Click to select images or drag & drop here</p>
+                            <p className="text-xs text-gray-400 mb-2">PNG, JPG or WebP (max 5MB each)</p>
+                            <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg mb-2">
+                              <p className="text-xs font-semibold">📁 Select multiple: Hold Ctrl/Cmd + Click</p>
                             </div>
-                          )}
-                        </div>
-                        <input
-                          id="file-main"
-                          type="file"
-                          className="hidden"
-                          accept="image/*"
-                          multiple
-                          onChange={handleFileSelect}
-                        />
-                      </label>
+                            <div className="bg-purple-100 text-purple-800 px-4 py-2 rounded-lg">
+                              <p className="text-xs font-semibold">🎯 Or drag multiple files here</p>
+                            </div>
+                            {selectedFiles.length > 0 && (
+                              <div className="mt-3 bg-green-100 text-green-800 px-4 py-2 rounded-lg">
+                                <p className="text-xs font-bold">✓ {selectedFiles.length} image{selectedFiles.length !== 1 ? 's' : ''} ready to upload</p>
+                              </div>
+                            )}
+                          </div>
+                          <input
+                            id="file-main"
+                            type="file"
+                            className="hidden"
+                            accept="image/*"
+                            multiple
+                            onChange={handleFileSelect}
+                          />
+                        </label>
+                      </div>
 
                       {/* Add More Button - visible when files already selected */}
                       {selectedFiles.length > 0 && (
@@ -619,8 +645,8 @@ export default function ImagesManagerPage() {
 
                       <p className="text-xs text-center text-gray-500">
                         {selectedFiles.length === 0 
-                          ? "Select multiple images at once with Ctrl/Cmd + Click" 
-                          : "Click 'Add More Images' to select additional files"}
+                          ? "💡 Three ways: 1) Hold Ctrl/Cmd while clicking files 2) Drag & drop multiple files 3) Click 'Add More Images' button after first selection" 
+                          : "✓ Click 'Add More Images' to select additional files"}
                       </p>
                     </div>
                   </div>
