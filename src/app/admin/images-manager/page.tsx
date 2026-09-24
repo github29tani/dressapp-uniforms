@@ -56,6 +56,13 @@ export default function ImagesManagerPage() {
   const [cleanupSuccess, setCleanupSuccess] = useState<string | null>(null)
   const [cleanupError, setCleanupError] = useState<string | null>(null)
 
+  // Sizes Tab State
+  const [selectedProductForSizes, setSelectedProductForSizes] = useState<string>("")
+  const [sizeForm, setSizeForm] = useState({ size: "", sku: "", price: "", stock: "0" })
+  const [savingSize, setSavingSize] = useState(false)
+  const [sizeSuccess, setSizeSuccess] = useState<string | null>(null)
+  const [sizeError, setSizeError] = useState<string | null>(null)
+
   useEffect(() => {
     loadProducts()
     loadAllImages()
@@ -473,6 +480,89 @@ export default function ImagesManagerPage() {
     }
   }
 
+  // ===== SIZES TAB FUNCTIONS =====
+  async function handleAddSize() {
+    if (!selectedProductForSizes || !sizeForm.size.trim()) {
+      setSizeError("Please select a product and enter a size")
+      return
+    }
+
+    setSavingSize(true)
+    setSizeError(null)
+    setSizeSuccess(null)
+
+    try {
+      const product = products.find(p => p.id === selectedProductForSizes)
+      if (!product) throw new Error("Product not found")
+
+      const { error } = await supabase
+        .from("product_variants")
+        .insert({
+          product_id: selectedProductForSizes,
+          size: sizeForm.size.trim(),
+          sku: sizeForm.sku.trim() || null,
+          price: sizeForm.price ? Math.round(Number(sizeForm.price) * 100) : product.price,
+          stock: parseInt(sizeForm.stock) || 0
+        })
+
+      if (error) throw error
+
+      setSizeSuccess(`Successfully added size ${sizeForm.size} for ${product.name}`)
+      setSizeForm({ size: "", sku: "", price: "", stock: "0" })
+      
+      // Refresh products to show updated variants
+      loadProducts()
+      
+      setTimeout(() => setSizeSuccess(null), 3000)
+    } catch (err: any) {
+      console.error("Add size error:", err)
+      setSizeError(err.message || "Failed to add size")
+    } finally {
+      setSavingSize(false)
+    }
+  }
+
+  async function handleDeleteSize(variantId: string, sizeName: string) {
+    if (!confirm(`Delete size ${sizeName}?`)) return
+
+    try {
+      const { error } = await supabase
+        .from("product_variants")
+        .delete()
+        .eq("id", variantId)
+
+      if (error) throw error
+
+      setSizeSuccess(`Size ${sizeName} deleted successfully`)
+      loadProducts()
+      
+      setTimeout(() => setSizeSuccess(null), 2000)
+    } catch (err: any) {
+      console.error("Delete size error:", err)
+      setSizeError(err.message || "Failed to delete size")
+    }
+  }
+
+  async function handleUpdateStock(variantId: string, stock: number) {
+    try {
+      const { error } = await supabase
+        .from("product_variants")
+        .update({ stock })
+        .eq("id", variantId)
+
+      if (error) throw error
+
+      // Update local state
+      setProducts(prev => prev.map(p => ({
+        ...p,
+        variants: p.variants.map(v => v.id === variantId ? { ...v, stock } : v)
+      })))
+    } catch (err: any) {
+      console.error("Update stock error:", err)
+      setSizeError(err.message || "Failed to update stock")
+    }
+  }
+
   const selectedProductData = products.find(p => p.id === selectedProduct)
   const allImagesSelected = images.length > 0 && selectedImageIds.size === images.length
   const allOrphansSelected = orphanedImages.length > 0 && selectedOrphanIds.size === orphanedImages.length
@@ -488,10 +578,11 @@ export default function ImagesManagerPage() {
 
       <div className="container mx-auto px-4 py-8 max-w-7xl">
         <Tabs defaultValue="upload" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-6">
+          <TabsList className="grid w-full grid-cols-4 mb-6">
             <TabsTrigger value="upload">Upload Images</TabsTrigger>
             <TabsTrigger value="manage">Manage Images ({images.length})</TabsTrigger>
-            <TabsTrigger value="cleanup">Cleanup Orphaned ({orphanedImages.length})</TabsTrigger>
+            <TabsTrigger value="sizes">Manage Sizes</TabsTrigger>
+            <TabsTrigger value="cleanup">Cleanup ({orphanedImages.length})</TabsTrigger>
           </TabsList>
 
           {/* ===== UPLOAD TAB ===== */}
@@ -921,6 +1012,184 @@ export default function ImagesManagerPage() {
                 ))}
               </div>
             )}
+          </TabsContent>
+
+          {/* ===== SIZES TAB ===== */}
+          <TabsContent value="sizes">
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-lg font-semibold mb-6">Manage Product Sizes</h2>
+                
+                <div className="space-y-6">
+                  {/* Product Selection */}
+                  <div>
+                    <Label htmlFor="product-sizes">Select Product *</Label>
+                    {loadingProducts ? (
+                      <div className="mt-2 flex items-center justify-center h-10 border rounded-lg bg-gray-50">
+                        <Loader2 className="h-4 w-4 animate-spin text-gray-400 mr-2" />
+                        <span className="text-sm text-gray-500">Loading products...</span>
+                      </div>
+                    ) : products.length === 0 ? (
+                      <div className="mt-2 bg-amber-50 border border-amber-200 rounded-lg p-4">
+                        <div className="flex items-start gap-3">
+                          <AlertCircle className="h-5 w-5 text-amber-600 mt-0.5 shrink-0" />
+                          <div>
+                            <p className="text-sm font-semibold text-amber-900">No Products Found</p>
+                            <p className="text-xs text-amber-700 mt-1">
+                              Please create products first.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <Select value={selectedProductForSizes} onValueChange={(value) => setSelectedProductForSizes(value || "")}>
+                        <SelectTrigger className="mt-2">
+                          <SelectValue placeholder="Choose a product..." />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {products.map((product) => (
+                            <SelectItem key={product.id} value={product.id}>
+                              {product.name} - {(product.category as Category)?.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    )}
+                  </div>
+
+                  {/* Current Sizes Display */}
+                  {selectedProductForSizes && (() => {
+                    const product = products.find(p => p.id === selectedProductForSizes)
+                    return product && product.variants && product.variants.length > 0 && (
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <p className="text-sm font-semibold text-blue-900 mb-3">
+                          Current sizes for {product.name}:
+                        </p>
+                        <div className="space-y-2">
+                          {product.variants.map((variant) => (
+                            <div key={variant.id} className="flex items-center gap-3 p-3 bg-white rounded-lg border">
+                              <div className="flex-1">
+                                <div className="flex items-center gap-2">
+                                  <span className="font-semibold text-gray-900">Size: {variant.size}</span>
+                                  <span className="text-xs text-gray-500">₹{(variant.price / 100).toFixed(0)}</span>
+                                </div>
+                                {variant.sku && <p className="text-xs text-gray-500 mt-1">SKU: {variant.sku}</p>}
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <Label className="text-xs text-gray-600">Stock:</Label>
+                                <Input
+                                  type="number"
+                                  value={variant.stock}
+                                  onChange={(e) => handleUpdateStock(variant.id, parseInt(e.target.value) || 0)}
+                                  className="w-20 h-8 text-center"
+                                />
+                              </div>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => handleDeleteSize(variant.id, variant.size)}
+                                className="text-red-500 hover:text-red-700 h-8 w-8 p-0"
+                              >
+                                <Trash2 className="h-4 w-4" />
+                              </Button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )
+                  })()}
+
+                  <Separator />
+
+                  {/* Add New Size Form */}
+                  <div>
+                    <Label className="text-sm font-semibold">Add New Size</Label>
+                    <div className="mt-3 space-y-3">
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <Label className="text-xs">Size * (e.g., 28, M, L)</Label>
+                          <Input
+                            className="mt-1"
+                            placeholder="28"
+                            value={sizeForm.size}
+                            onChange={(e) => setSizeForm((f) => ({ ...f, size: e.target.value }))}
+                          />
+                        </div>
+                        <div>
+                          <Label className="text-xs">SKU (optional)</Label>
+                          <Input
+                            className="mt-1"
+                            placeholder="PANT-BLK-28"
+                            value={sizeForm.sku}
+                            onChange={(e) => setSizeForm((f) => ({ ...f, sku: e.target.value }))}
+                          />
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <Label className="text-xs">Price (₹) - Leave empty to use product price</Label>
+                          <Input
+                            type="number"
+                            className="mt-1"
+                            placeholder="320"
+                            value={sizeForm.price}
+                            onChange={(e) => setSizeForm((f) => ({ ...f, price: e.target.value }))}
+                          />
+                        </div>
+                        <div>
+                          <Label className="text-xs">Initial Stock</Label>
+                          <Input
+                            type="number"
+                            className="mt-1"
+                            placeholder="0"
+                            value={sizeForm.stock}
+                            onChange={(e) => setSizeForm((f) => ({ ...f, stock: e.target.value }))}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Success/Error Messages */}
+                  {sizeSuccess && (
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                      <div className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-green-600 mt-0.5" />
+                        <p className="text-sm font-medium text-green-900">{sizeSuccess}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {sizeError && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                      <div className="flex items-start gap-3">
+                        <AlertCircle className="h-5 w-5 text-red-600 mt-0.5" />
+                        <p className="text-sm font-medium text-red-900">{sizeError}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Add Size Button */}
+                  <Button
+                    className="w-full bg-blue-700 hover:bg-blue-800"
+                    onClick={handleAddSize}
+                    disabled={!selectedProductForSizes || !sizeForm.size || savingSize}
+                  >
+                    {savingSize ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                        Adding Size...
+                      </>
+                    ) : (
+                      <>
+                        <Upload className="h-4 w-4 mr-2" />
+                        Add Size
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </TabsContent>
 
           {/* ===== CLEANUP TAB ===== */}
