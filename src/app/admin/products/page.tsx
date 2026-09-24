@@ -211,9 +211,10 @@ export default function AdminProductsPage() {
                         <td className="px-4 py-3"><Badge className={product.is_active ? "bg-green-100 text-green-700 text-xs" : "bg-gray-100 text-gray-500 text-xs"}>{product.is_active ? "Active" : "Hidden"}</Badge></td>
                         <td className="px-4 py-3">
                           <div className="flex items-center gap-1">
-                            <Button variant="ghost" size="sm" className="h-8 w-8 p-0" onClick={() => openEdit(product)}><Pencil className="h-3.5 w-3.5" /></Button>
-                            <Button variant="ghost" size="sm" className="h-8 w-8 p-0" onClick={() => toggleActive(product)}>{product.is_active ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}</Button>
-                            <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-red-400 hover:text-red-600" onClick={() => handleDelete(product.id)}><Trash2 className="h-3.5 w-3.5" /></Button>
+                            <Button variant="ghost" size="sm" className="h-8 w-8 p-0" onClick={() => openVariants(product)} title="Manage Sizes"><Layers className="h-3.5 w-3.5" /></Button>
+                            <Button variant="ghost" size="sm" className="h-8 w-8 p-0" onClick={() => openEdit(product)} title="Edit Product"><Pencil className="h-3.5 w-3.5" /></Button>
+                            <Button variant="ghost" size="sm" className="h-8 w-8 p-0" onClick={() => toggleActive(product)} title={product.is_active ? "Hide" : "Show"}>{product.is_active ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}</Button>
+                            <Button variant="ghost" size="sm" className="h-8 w-8 p-0 text-red-400 hover:text-red-600" onClick={() => handleDelete(product.id)} title="Delete"><Trash2 className="h-3.5 w-3.5" /></Button>
                           </div>
                         </td>
                       </tr>
@@ -261,6 +262,112 @@ export default function AdminProductsPage() {
             <Button className="w-full bg-blue-700 hover:bg-blue-800" onClick={handleSave} disabled={saving}>
               {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : editId ? "Save Changes" : "Add Product"}
             </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Manage Sizes/Variants Dialog */}
+      <Dialog open={showVariants} onOpenChange={setShowVariants}>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Manage Sizes - {variantProduct?.name}</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-6 mt-2">
+            {/* Current Variants */}
+            {variantProduct && variantProduct.variants.length > 0 && (
+              <div>
+                <Label className="text-sm font-semibold">Current Sizes</Label>
+                <div className="mt-2 space-y-2">
+                  {variantProduct.variants.map((variant) => (
+                    <div key={variant.id} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <span className="font-semibold text-gray-900">Size: {variant.size}</span>
+                          <Badge className="text-xs">{formatPrice(variant.price)}</Badge>
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1">SKU: {variant.sku || "—"}</p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Label className="text-xs text-gray-600">Stock:</Label>
+                        <Input
+                          type="number"
+                          value={variant.stock}
+                          onChange={(e) => handleUpdateVariantStock(variant.id, parseInt(e.target.value) || 0)}
+                          className="w-20 h-8 text-center"
+                        />
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => handleDeleteVariant(variant.id)}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <Separator />
+
+            {/* Add New Variant */}
+            <div>
+              <Label className="text-sm font-semibold">Add New Size</Label>
+              {variantError && <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2 mt-2">{variantError}</div>}
+              <div className="mt-2 space-y-3">
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <Label className="text-xs">Size *</Label>
+                    <Input
+                      className="mt-1"
+                      placeholder="e.g., 28, M, L"
+                      value={variantForm.size}
+                      onChange={(e) => setVariantForm((f) => ({ ...f, size: e.target.value }))}
+                    />
+                  </div>
+                  <div>
+                    <Label className="text-xs">SKU (optional)</Label>
+                    <Input
+                      className="mt-1"
+                      placeholder="e.g., DPS-WHT-28"
+                      value={variantForm.sku}
+                      onChange={(e) => setVariantForm((f) => ({ ...f, sku: e.target.value }))}
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <Label className="text-xs">Price (₹)</Label>
+                    <Input
+                      type="number"
+                      className="mt-1"
+                      placeholder="320"
+                      value={variantForm.price}
+                      onChange={(e) => setVariantForm((f) => ({ ...f, price: e.target.value }))}
+                    />
+                  </div>
+                  <div>
+                    <Label className="text-xs">Initial Stock</Label>
+                    <Input
+                      type="number"
+                      className="mt-1"
+                      placeholder="0"
+                      value={variantForm.stock}
+                      onChange={(e) => setVariantForm((f) => ({ ...f, stock: e.target.value }))}
+                    />
+                  </div>
+                </div>
+                <Button
+                  className="w-full bg-blue-700 hover:bg-blue-800"
+                  onClick={handleAddVariant}
+                  disabled={savingVariant}
+                >
+                  {savingVariant ? <><Loader2 className="h-4 w-4 animate-spin mr-2" />Adding...</> : <><Plus className="h-4 w-4 mr-2" />Add Size</>}
+                </Button>
+              </div>
+            </div>
           </div>
         </DialogContent>
       </Dialog>
