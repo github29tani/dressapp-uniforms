@@ -67,6 +67,13 @@ function ProductsContent() {
 
       const { data } = await q
       let rows = (data ?? []) as Product[]
+      
+      // Sort images by sort_order for each product
+      rows = rows.map(product => ({
+        ...product,
+        images: (product.images ?? []).sort((a: any, b: any) => a.sort_order - b.sort_order)
+      }))
+      
       if (filterAvailability === "in-stock") {
         rows = rows.filter((p) => p.variants.some((v) => v.stock > 0))
       }

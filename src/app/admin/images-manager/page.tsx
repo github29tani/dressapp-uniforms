@@ -212,7 +212,7 @@ export default function ImagesManagerPage() {
       let uploadedCount = 0
       let failedCount = 0
 
-      for (const file of selectedFiles) {
+      for (const [index, file] of selectedFiles.entries()) {
         try {
           const fileName = `${category.slug}/${product.slug}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${file.name.split('.').pop()}`
 
@@ -221,6 +221,7 @@ export default function ImagesManagerPage() {
           formData.append('productId', selectedProduct)
           formData.append('fileName', fileName)
           formData.append('objectFit', 'contain')
+          formData.append('sortOrder', index.toString()) // Pass the index as desired sort order
 
           const response = await fetch('/api/upload-image', {
             method: 'POST',

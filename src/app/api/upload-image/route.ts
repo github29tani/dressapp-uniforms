@@ -16,18 +16,29 @@ export async function POST(request: NextRequest) {
     const productId = formData.get('productId') as string
     const fileName = formData.get('fileName') as string
     const objectFit = (formData.get('objectFit') as string) || 'cover'
+    const sortOrderParam = formData.get('sortOrder') as string | null
 
     if (!file || !productId || !fileName) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    // Get existing images count to determine sort_order
-    const { data: existingImages, count } = await supabase
-      .from('product_images')
-      .select('id', { count: 'exact' })
-      .eq('product_id', productId)
-
-    const nextSortOrder = (count || 0) + 1
+    // Determine sort_order
+    let nextSortOrder: number
+    if (sortOrderParam !== null) {
+      // Use provided sort order if available
+      const { count } = await supabase
+        .from('product_images')
+        .select('id', { count: 'exact' })
+        .eq('product_id', productId)
+      nextSortOrder = (count || 0) + parseInt(sortOrderParam)
+    } else {
+      // Get existing images count to determine sort_order
+      const { count } = await supabase
+        .from('product_images')
+        .select('id', { count: 'exact' })
+        .eq('product_id', productId)
+      nextSortOrder = (count || 0) + 1
+    }
 
     // Convert file to buffer
     const arrayBuffer = await file.arrayBuffer()
